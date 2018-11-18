@@ -18,7 +18,7 @@ class SyntaxAnalyzer
   end
 
   def credentials
-    3
+    credentials_json.to_json
   end
 
   def client
