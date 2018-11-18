@@ -1,4 +1,3 @@
-require 'google/cloud/language'
 require_relative 'syntax_analyzer'
 
 class Neutralizer
