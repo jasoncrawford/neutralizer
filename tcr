@@ -1,2 +1,2 @@
 #!/bin/sh
-rspec spec.rb && (git add . && git commit -m tcr) || git reset --hard
+git add . && rspec spec.rb && git commit -m tcr || git reset --hard
