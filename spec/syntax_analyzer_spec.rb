@@ -16,16 +16,6 @@ describe SyntaxAnalyzer do
     end
   end
 
-  describe "credentials_io" do
-    subject { analyzer.credentials_io }
-    it { is_expected.to be_a(StringIO) }
-  end
-
-  describe "credentials" do
-    subject { analyzer.credentials }
-    it { is_expected.to_not be_nil }
-  end
-
   describe "client" do
     subject { analyzer.client }
     it { is_expected.to_not be_nil }

@@ -17,18 +17,6 @@ class SyntaxAnalyzer
     }
   end
 
-  def credentials_io
-    StringIO.new(credentials_json.to_json)
-  end
-
-  def credentials_scope
-    'https://www.googleapis.com/auth/cloud-language'
-  end
-
-  def credentials
-    Google::Auth::ServiceAccountCredentials.make_creds scope: credentials_scope, json_key_io: credentials_io
-  end
-
   def client
     @client ||= Google::Cloud::Language.new credentials: credentials_json
   end
