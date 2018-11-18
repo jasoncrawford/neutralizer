@@ -3,7 +3,7 @@ require 'google/cloud/language'
 
 class SyntaxAnalyzer
   def credentials_io
-    StringIO.new
+    StringIO.new(credentials_json.to_json)
   end
 
   def credentials_json
