@@ -38,8 +38,12 @@ describe SyntaxAnalyzer do
         expect(subject.text.content).to eq("This")
       end
 
-      it "has text offset" do
+      it "has text begin offset" do
         expect(subject.text.begin_offset).to eq(0)
+      end
+
+      it "has dependency edge label" do
+        expect(subject.dependency_edge.label).to be_a(Symbol)
       end
     end
   end
