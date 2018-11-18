@@ -21,16 +21,16 @@ class Neutralizer
       edge = token.dependency_edge
 
       repl = case edge.label
-      when :NSUBJ
+      when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
         "They"
-      when :DOBJ
+      when :POBJ, :DOBJ, :IOBJ, :GOBJ
         "Them"
-      when :POSS
+      when :POSS, :PS
         "Their"
       when :ATTR
         "Theirs"
       else
-        "They"
+        throw "unknown label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
       end
 
       repl.downcase! if text.content == text.content.downcase
