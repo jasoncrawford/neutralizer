@@ -46,7 +46,7 @@ class SyntaxAnalyzerFake
 
     raise "unexpected request #{params.inspect}" unless new_requests_allowed?
 
-    response = @block.call
+    response = block.call
 
     record_fake_response params, response
     response
