@@ -10,6 +10,10 @@ describe SyntaxAnalyzer do
   describe "credentials_json" do
     subject { analyzer.credentials_json }
     it { is_expected.to be_a(Hash) }
+
+    it "is a hash" do
+      expect(subject).to be_a(Hash)
+    end
   end
 
   describe "credentials_io" do
