@@ -50,9 +50,12 @@ end
 class SyntaxAnalyzer
   orig_analyze = instance_method :analyze
 
-  def analyze(text)
+  def fake
     @fake ||= SyntaxAnalyzerFake.new
-    @fake.with_fake_response(text) do
+  end
+
+  def analyze(text)
+    fake.with_fake_response(text) do
       orig_analyze text
     end
   end
