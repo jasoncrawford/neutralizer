@@ -3,6 +3,8 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.3)
     faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
@@ -31,6 +33,7 @@ GEM
     grpc (1.16.0)
       google-protobuf (~> 3.1)
       googleapis-common-protos-types (~> 1.0.0)
+    hashdiff (0.3.7)
     jwt (2.1.0)
     memoist (0.16.0)
     multi_json (1.13.1)
@@ -56,6 +59,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    safe_yaml (1.0.4)
     signet (0.11.0)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -66,6 +70,11 @@ GEM
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     tilt (2.0.8)
+    vcr (4.0.0)
+    webmock (3.4.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -75,6 +84,8 @@ DEPENDENCIES
   rack-test
   rspec
   sinatra
+  vcr
+  webmock
 
 BUNDLED WITH
    1.16.1
