@@ -6,7 +6,7 @@ class SyntaxAnalyzer
       "type": "service_account",
       "project_id": "blind-audition-222804",
       "private_key_id": ENV['GOOGLE_APPLICATION_PRIVATE_KEY_ID'],
-      "private_key": "fake-private-key",
+      "private_key": ENV['GOOGLE_APPLICATION_PRIVATE_KEY'],
       "client_email": "nlp-958@blind-audition-222804.iam.gserviceaccount.com",
       "client_id": "107848770294889190073",
       "auth_uri": "https://accounts.google.com/o/oauth2/auth",
