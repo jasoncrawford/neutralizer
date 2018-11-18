@@ -43,7 +43,7 @@ describe SyntaxAnalyzer do
       end
 
       it "has dependency edge label" do
-        expect(subject.dependency_edge.label).to be_a(Symbol)
+        expect(subject.dependency_edge.label).to eq(:NSUBJ)
       end
     end
   end
