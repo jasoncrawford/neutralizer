@@ -6,6 +6,8 @@ class Neutralizer
   end
 
   def generate_replacements(text)
+    analysis = analyzer.analyze text
+    tokens = analysis.tokens
     []
   end
 
