@@ -2,10 +2,6 @@ require 'json'
 require 'google/cloud/language'
 
 class SyntaxAnalyzer
-  def credentials_io
-    StringIO.new(credentials_json.to_json)
-  end
-
   def credentials_json
     {
       "type": "service_account",
@@ -20,6 +16,10 @@ class SyntaxAnalyzer
       "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nlp-958%40blind-audition-222804.iam.gserviceaccount.com"
     }
   end
+  def credentials_io
+    StringIO.new(credentials_json.to_json)
+  end
+
 
   def credentials
     credentials_json.to_json
