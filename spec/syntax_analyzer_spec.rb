@@ -37,6 +37,10 @@ describe SyntaxAnalyzer do
       it "has text content" do
         expect(subject.text.content).to eq("This")
       end
+
+      it "has text offset" do
+        expect(subject.text.begin_offset).to eq(0)
+      end
     end
   end
 end
