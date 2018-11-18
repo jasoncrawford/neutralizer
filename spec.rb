@@ -13,9 +13,14 @@ describe "server" do
     expect(last_response).to be_ok
   end
 
-  it "neutralizes" do
-    post '/neutralize'
-    expect(last_response).to be_ok
-    expect(last_response.body).to eql('OK')
+  describe "neutralize" do
+    before do
+      post '/neutralize'
+    end
+
+    it "should work" do
+      expect(last_response).to be_ok
+      expect(last_response.body).to eql('OK')
+    end
   end
 end
