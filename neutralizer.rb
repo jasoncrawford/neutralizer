@@ -11,6 +11,7 @@ class Neutralizer
   end
 
   def generate_replacements(text)
+    puts "TEXT: #{text}"
     analysis = analyzer.analyze text
     tokens = analysis.tokens
 
@@ -34,6 +35,7 @@ class Neutralizer
       end
 
       repl.downcase! if text.content == text.content.downcase
+      puts "replacing '#{text.content}' (#{edge.label}) with '#{repl}' at #{text.begin_offset}"
       replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
     end
 
