@@ -1,6 +1,6 @@
 require_relative '../neutralizer'
 
-describe Neutralizer do
+describe Neutralizer, :vcr do
   let(:neutralizer) { Neutralizer.new }
 
   describe "analyzer" do

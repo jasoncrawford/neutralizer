@@ -1,6 +1,6 @@
 require_relative '../syntax_analyzer'
 
-describe SyntaxAnalyzer do
+describe SyntaxAnalyzer, :vcr do
   let(:analyzer) { SyntaxAnalyzer.new }
 
   it 'has a private key' do
