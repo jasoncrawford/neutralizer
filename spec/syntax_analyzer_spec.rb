@@ -26,20 +26,20 @@ describe SyntaxAnalyzer do
       expect(subject.tokens.length).to eq(4)
     end
 
-    # describe "each token" do
-    #   subject { response.tokens[0] }
+    describe "each token" do
+      subject { response.tokens[0] }
 
-    #   it "has text content" do
-    #     expect(subject.text.content).to eq("This")
-    #   end
+      it "has text content" do
+        expect(subject.text.content).to eq("This")
+      end
 
-    #   it "has text begin offset" do
-    #     expect(subject.text.begin_offset).to eq(0)
-    #   end
+      it "has text begin offset" do
+        expect(subject.text.begin_offset).to eq(0)
+      end
 
-    #   it "has dependency edge label" do
-    #     expect(subject.dependency_edge.label).to eq(:NSUBJ)
-    #   end
-    # end
+      it "has dependency edge label" do
+        expect(subject.dependency_edge.label).to eq(:NSUBJ)
+      end
+    end
   end
 end
