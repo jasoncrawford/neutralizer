@@ -5,6 +5,9 @@ class Neutralizer
     @analyzer ||= SyntaxAnalyzer.new
   end
 
+  def generate_replacements
+  end
+
   def neutralize(text)
     analysis = analyzer.analyze text
     tokens = analysis.tokens

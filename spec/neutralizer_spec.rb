@@ -8,6 +8,9 @@ describe Neutralizer do
     it { is_expected.to_not be_nil }
   end
 
+  describe "generate replacements" do
+  end
+
   describe "neutralize" do
     let(:text) { "He said" }
     subject { neutralizer.neutralize text }
