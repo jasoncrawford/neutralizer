@@ -1,3 +1,4 @@
+require 'json'
 require 'google/cloud/language'
 
 class SyntaxAnalyzer
