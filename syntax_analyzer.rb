@@ -1,5 +1,6 @@
 require 'json'
 require 'google/cloud/language'
+require 'google/cloud/language/v1'
 
 class SyntaxAnalyzer
   def credentials
