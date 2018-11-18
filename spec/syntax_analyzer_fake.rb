@@ -4,6 +4,10 @@ require 'fileutils'
 require_relative '../syntax_analyzer'
 
 class SyntaxAnalyzerFake
+  def new_requests_allowed?
+    true
+  end
+
   def dirpath
     'spec/fakes'
   end
@@ -39,6 +43,8 @@ class SyntaxAnalyzerFake
   def with_fake_response(params, &block)
     fake_response = get_fake_response params
     return fake_response if fake_response
+
+    raise "unexpected request #{params.inspect}" unless new_requests_allowed?
 
     response = @block.call
 
