@@ -40,6 +40,10 @@ class SyntaxAnalyzer
     "#{dirpath}/#{filename_for_text text}"
   end
 
+  def serialize(response)
+    response.to_h.to_json
+  end
+
   def get_fake_response(text)
     filepath = filepath_for_text text
     return nil unless File.exists? filepath
@@ -50,7 +54,7 @@ class SyntaxAnalyzer
   def record_fake_response(text, response)
     FileUtils.mkdir_p dirpath
     filepath = filepath_for_text text
-    File.open(filepath, "w") {|f| f.write response.to_h.to_json}
+    File.open(filepath, "w") {|f| f.write(serialize response)}
   end
 
   def analyze(text)
