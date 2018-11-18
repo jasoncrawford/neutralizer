@@ -1,0 +1,2 @@
+class SyntaxAnalyzer
+end
