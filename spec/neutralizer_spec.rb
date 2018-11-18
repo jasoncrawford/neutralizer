@@ -41,6 +41,10 @@ describe Neutralizer do
       it { is_expected.to eq([{orig: "her", offset: 3, repl: "their"}])}
     end
 
+    context "The credit is his" do
+      let(:text) { "The credit is his" }
+    end
+
     context "She thinks he will" do
       let(:text) { "She thinks he will" }
       let(:expected) do
