@@ -1,3 +1,5 @@
+require 'google/cloud/language'
+
 class Neutralizer
   def analyze(text)
     text
