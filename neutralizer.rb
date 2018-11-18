@@ -17,7 +17,8 @@ class Neutralizer
     replacements = []
     tokens.each do |token|
       next unless is_gendered?(token)
-      replacements << {orig: "He", offset: 0, repl: "They"}
+      text = token.text
+      replacements << {orig: text.content, offset: text.begin_offset, repl: "They"}
     end
 
     replacements
