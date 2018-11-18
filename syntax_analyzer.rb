@@ -29,9 +29,11 @@ class SyntaxAnalyzer
   end
 
   def analyze(text)
-    document = {content: text, type: :PLAIN_TEXT}
-    encoding_type = Google::Cloud::Language::V1::EncodingType::UTF8
-    client.analyze_syntax document, encoding_type: encoding_type
+    @fake.with_fake_response(text) do
+      document = {content: text, type: :PLAIN_TEXT}
+      encoding_type = Google::Cloud::Language::V1::EncodingType::UTF8
+      client.analyze_syntax document, encoding_type: encoding_type
+    end
   end
 end
 
@@ -72,7 +74,7 @@ class SyntaxAnalyzerFake
     fake_response = get_fake_response params
     return fake_response if fake_response
 
-    response = @block.call params
+    response = @block.call
 
     record_fake_response params, response
     response
