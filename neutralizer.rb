@@ -11,7 +11,11 @@ class Neutralizer
 
     token = tokens[0]
     gender = token.part_of_speech.gender
-    [{orig: "He", offset: 0, repl: "They"}]
+    if gender == :MASCULINE || gender == :FEMININE
+      [{orig: "He", offset: 0, repl: "They"}]
+    else
+      []
+    end
   end
 
   def neutralize(text)
