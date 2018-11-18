@@ -15,7 +15,7 @@ describe "server" do
 
   describe "neutralize" do
     before do
-      post '/neutralize'
+      post '/neutralize', "body"
     end
 
     it "should succeed" do
