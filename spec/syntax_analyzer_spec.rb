@@ -16,11 +16,6 @@ describe SyntaxAnalyzer do
     end
   end
 
-  describe "client" do
-    subject { analyzer.client }
-    it { is_expected.to_not be_nil }
-  end
-
   describe "analyze" do
     let(:text) { "This is a test" }
     let(:response) { analyzer.analyze text }
