@@ -1,4 +1,5 @@
 require 'json'
+require 'digest'
 require 'google/cloud/language'
 require 'google/cloud/language/v1'
 
@@ -26,6 +27,8 @@ class SyntaxAnalyzer
   end
 
   def record_fake_response(text, response)
+    key = Digest::MD5.hexdigest text
+    nil
   end
 
   def analyze(text)
