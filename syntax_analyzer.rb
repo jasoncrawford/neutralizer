@@ -28,8 +28,12 @@ class SyntaxAnalyzer
     'spec/fakes'
   end
 
+  def key_for_text(text)
+    Digest::MD5.hexdigest text
+  end
+
   def get_fake_response(text)
-    key = Digest::MD5.hexdigest text
+    key = key_for_text text
     filepath = "#{dirpath}/#{key}.json"
     return nil unless File.exists? filepath
     json = File.read(filepath)
@@ -37,7 +41,7 @@ class SyntaxAnalyzer
   end
 
   def record_fake_response(text, response)
-    key = Digest::MD5.hexdigest text
+    key = key_for_text text
     FileUtils.mkdir_p dirpath
     filepath = "#{dirpath}/#{key}.json"
     File.open(filepath, "w") {|f| f.write response.to_h.to_json}
