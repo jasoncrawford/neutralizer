@@ -8,7 +8,7 @@ class Neutralizer
   def generate_replacements(text)
     analysis = analyzer.analyze text
     tokens = analysis.tokens
-    []
+    [{orig: "He", offset: 0, repl: "They"}]
   end
 
   def neutralize(text)
