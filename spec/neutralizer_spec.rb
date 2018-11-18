@@ -20,6 +20,11 @@ describe Neutralizer do
       let(:text) { "He said" }
       it { is_expected.to eq([{orig: "He", offset: 0, repl: "They"}]) }
     end
+
+    context "She does" do
+      let(:text) { "She does" }
+      it { is_expected.to eq([{orig: "She", offset: 0, repl: "They"}]) }
+    end
   end
 
   describe "neutralize" do
