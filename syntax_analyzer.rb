@@ -21,6 +21,10 @@ class SyntaxAnalyzer
     StringIO.new(credentials_json.to_json)
   end
 
+  def credentials_scope
+    'https://www.googleapis.com/auth/cloud-language'
+  end
+
   def credentials
     credentials_json.to_json
   end
