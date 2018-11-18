@@ -24,6 +24,6 @@ describe SyntaxAnalyzer do
   describe "analyze" do
     let(:text) { "This is a test" }
     subject { analyzer.analyze text }
-    it { is_expected.to be_nil }
+    it { is_expected.to_not be_nil }
   end
 end
