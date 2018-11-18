@@ -19,7 +19,14 @@ class Neutralizer
       next unless is_gendered?(token)
       text = token.text
       edge = token.dependency_edge
-      repl = "They"
+
+      repl = case edge.label
+      when :NSUBJ
+        "They"
+      else
+        "They"
+      end
+
       repl.downcase! if text.content == text.content.downcase
       replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
     end
