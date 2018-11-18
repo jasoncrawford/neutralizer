@@ -7,8 +7,8 @@ describe SyntaxAnalyzer do
     expect(ENV['GOOGLE_APPLICATION_PRIVATE_KEY']).to_not be_nil
   end
 
-  describe "credentials_json" do
-    subject { analyzer.credentials_json }
+  describe "credentials" do
+    subject { analyzer.credentials }
     it { is_expected.to be_a(Hash) }
 
     it "has a private key" do

@@ -2,7 +2,7 @@ require 'json'
 require 'google/cloud/language'
 
 class SyntaxAnalyzer
-  def credentials_json
+  def credentials
     {
       type: "service_account",
       project_id: "blind-audition-222804",
@@ -18,6 +18,6 @@ class SyntaxAnalyzer
   end
 
   def client
-    @client ||= Google::Cloud::Language.new credentials: credentials_json
+    @client ||= Google::Cloud::Language.new credentials: credentials
   end
 end
