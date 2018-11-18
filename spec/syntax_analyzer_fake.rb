@@ -60,7 +60,7 @@ class SyntaxAnalyzer
     @fake ||= SyntaxAnalyzerFake.new
   end
 
-  def analyze(text)
+  define_method(:analyze) do |text|
     fake.with_fake_response(text) do
       orig_analyze.bind(self).call(text)
     end
