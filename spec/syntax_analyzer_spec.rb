@@ -5,7 +5,7 @@ describe SyntaxAnalyzer do
 
   describe "credentials" do
     subject { analyzer.credentials }
-    it { is_expected.to be_nil }
+    it { is_expected.to_not be_nil }
   end
 
   describe "client" do
