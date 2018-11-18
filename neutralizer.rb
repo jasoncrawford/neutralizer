@@ -23,6 +23,8 @@ class Neutralizer
       repl = case edge.label
       when :NSUBJ
         "They"
+      when :DOBJ
+        "They"
       else
         "They"
       end
