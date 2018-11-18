@@ -5,6 +5,11 @@ class Neutralizer
     @analyzer ||= SyntaxAnalyzer.new
   end
 
+  def is_gendered?(token)
+    gender = token.part_of_speech.gender
+    return gender == :MASCULINE || gender == :FEMININE
+  end
+
   def generate_replacements(text)
     analysis = analyzer.analyze text
     tokens = analysis.tokens
