@@ -8,10 +8,6 @@ describe "server" do
     Sinatra::Application
   end
 
-  it "is true" do
-    expect(true).to be true
-  end
-
   it "says hello" do
     get '/'
     expect(last_response).to be_ok
