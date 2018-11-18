@@ -5,7 +5,7 @@ require_relative '../syntax_analyzer'
 
 class SyntaxAnalyzerFake
   def new_requests_allowed?
-    true
+    false
   end
 
   def dirpath
