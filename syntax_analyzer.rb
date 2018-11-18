@@ -32,12 +32,8 @@ class SyntaxAnalyzer
     Digest::MD5.hexdigest params
   end
 
-  def filename_for_params(params)
-    "#{key_for_params params}.json"
-  end
-
   def filepath_for_params(params)
-    "#{dirpath}/#{filename_for_params params}"
+    "#{dirpath}/#{key_for_params params}.json"
   end
 
   def serialize(response)
