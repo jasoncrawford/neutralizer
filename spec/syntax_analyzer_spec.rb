@@ -11,8 +11,8 @@ describe SyntaxAnalyzer do
     subject { analyzer.credentials_json }
     it { is_expected.to be_a(Hash) }
 
-    it "is a hash" do
-      expect(subject).to be_a(Hash)
+    it "has a private key" do
+      expect(subject[:private_key]).to_not be_nil
     end
   end
 
