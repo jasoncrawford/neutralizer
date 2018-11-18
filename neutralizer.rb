@@ -24,7 +24,7 @@ class Neutralizer
       when :NSUBJ
         "They"
       when :DOBJ
-        "They"
+        "Them"
       else
         "They"
       end
