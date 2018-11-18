@@ -30,5 +30,6 @@ class SyntaxAnalyzer
   end
 
   def client
+    Google::Cloud::Language.new credentials: credentials
   end
 end
