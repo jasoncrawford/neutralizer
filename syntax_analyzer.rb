@@ -28,16 +28,16 @@ class SyntaxAnalyzer
     'spec/fakes'
   end
 
-  def key_for_text(text)
-    Digest::MD5.hexdigest text
+  def key_for_params(params)
+    Digest::MD5.hexdigest params
   end
 
-  def filename_for_text(text)
-    "#{key_for_text text}.json"
+  def filename_for_params(params)
+    "#{key_for_params params}.json"
   end
 
-  def filepath_for_text(text)
-    "#{dirpath}/#{filename_for_text text}"
+  def filepath_for_params(params)
+    "#{dirpath}/#{filename_for_params params}"
   end
 
   def serialize(response)
@@ -48,15 +48,15 @@ class SyntaxAnalyzer
     Google::Cloud::Language::V1::AnalyzeSyntaxResponse.new(JSON.parse string)
   end
 
-  def get_fake_response(text)
-    filepath = filepath_for_text text
+  def get_fake_response(params)
+    filepath = filepath_for_params params
     return nil unless File.exists? filepath
     deserialize(File.read filepath)
   end
 
-  def record_fake_response(text, response)
+  def record_fake_response(params, response)
     FileUtils.mkdir_p dirpath
-    filepath = filepath_for_text text
+    filepath = filepath_for_params params
     File.open(filepath, "w") {|f| f.write(serialize response)}
   end
 
