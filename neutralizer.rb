@@ -25,6 +25,8 @@ class Neutralizer
         "They"
       when :DOBJ
         "Them"
+      when :POSS
+        "Their"
       else
         "They"
       end

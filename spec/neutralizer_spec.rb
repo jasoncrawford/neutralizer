@@ -33,6 +33,7 @@ describe Neutralizer do
 
     context "In her project" do
       let(:text) { "In her project" }
+      it { is_expected.to eq([{orig: "her", offset: 3, repl: "their"}])}
     end
 
     context "I told her" do
