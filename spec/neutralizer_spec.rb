@@ -31,14 +31,14 @@ describe Neutralizer do
       it { is_expected.to eq([{orig: "she", offset: 4, repl: "they"}]) }
     end
 
-    context "In her project" do
-      let(:text) { "In her project" }
-      it { is_expected.to eq([{orig: "her", offset: 3, repl: "their"}])}
-    end
-
     context "I told her" do
       let(:text) { "I told her" }
       it { is_expected.to eq([{orig: "her", offset: 7, repl: "them"}])}
+    end
+
+    context "In her project" do
+      let(:text) { "In her project" }
+      it { is_expected.to eq([{orig: "her", offset: 3, repl: "their"}])}
     end
 
     context "She thinks he will" do
