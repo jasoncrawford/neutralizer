@@ -22,8 +22,8 @@ describe "server" do
       expect(last_response).to be_ok
     end
 
-    it "should return a placeholder" do
-      expect(last_response.body).to eql('OK')
+    it "should echo the body" do
+      expect(last_response.body).to eql('body')
     end
   end
 end
