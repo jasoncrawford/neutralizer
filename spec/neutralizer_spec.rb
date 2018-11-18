@@ -54,7 +54,7 @@ describe Neutralizer do
           {orig: "he", offset: 11, repl: "they"},
         ]
       end
-      it { is_expected.to eq(expected)}
+      it { is_expected.to eq(expected) }
     end
   end
 
