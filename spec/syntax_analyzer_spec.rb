@@ -1,8 +1,9 @@
 require_relative '../syntax_analyzer'
 
 describe SyntaxAnalyzer do
-  let(:analyze) { SyntaxAnalyzer.new }
+  let(:analyzer) { SyntaxAnalyzer.new }
 
   describe "client" do
+    subject { analyzer.client }
   end
 end
