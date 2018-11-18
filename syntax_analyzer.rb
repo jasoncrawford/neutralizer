@@ -26,7 +26,7 @@ class SyntaxAnalyzer
   end
 
   def credentials
-    credentials_json.to_json
+    Google::Auth::ServiceAccountCredentials.make_creds scope: credentials_scope, json_key_io: credentials_io
   end
 
   def client
