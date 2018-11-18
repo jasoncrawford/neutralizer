@@ -5,10 +5,6 @@ require 'google/cloud/language'
 require 'google/cloud/language/v1'
 
 class SyntaxAnalyzer
-  def initialize
-    @fake = SyntaxAnalyzerFake.new
-  end
-
   def credentials
     {
       type: "service_account",
