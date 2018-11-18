@@ -6,6 +6,7 @@ class Neutralizer
   end
 
   def neutralize(text)
+    analysis = analyzer.analyze text
     text
   end
 end
