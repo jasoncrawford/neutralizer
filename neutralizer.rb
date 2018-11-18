@@ -10,6 +10,7 @@ class Neutralizer
     tokens = analysis.tokens
 
     token = tokens[0]
+    gender = token.part_of_speech.gender
     [{orig: "He", offset: 0, repl: "They"}]
   end
 
