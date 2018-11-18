@@ -62,7 +62,7 @@ class SyntaxAnalyzer
 
   def analyze(text)
     fake.with_fake_response(text) do
-      orig_analyze text
+      orig_analyze.bind(self).call(text)
     end
   end
 end
