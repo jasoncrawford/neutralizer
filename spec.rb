@@ -12,4 +12,9 @@ describe "server" do
     get '/'
     expect(last_response).to be_ok
   end
+
+  it "neutralizes" do
+    post '/neutralize'
+    expect(last_response).to be_ok
+  end
 end
