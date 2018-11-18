@@ -33,6 +33,12 @@ describe Neutralizer do
 
     context "She thinks he will" do
       let(:text) { "She thinks he will" }
+      let(:expected) do
+        [
+          {orig: "She", offset: 0, repl: "They"},
+          {orig: "he", offset: 11, repl: "they"},
+        ]
+      end
       it { is_expected.to be_an(Array)}
     end
   end
