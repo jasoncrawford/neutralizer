@@ -1,2 +1,2 @@
 #!/bin/sh
-git add . && bundle && rspec spec.rb && git commit -m tcr || git reset --hard
+git add . && bundle && rspec && git commit -m tcr || git reset --hard

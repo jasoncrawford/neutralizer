@@ -1,5 +1,5 @@
 require 'rack/test'
-require_relative 'server'
+require_relative '../server'
 
 describe "server" do
   include Rack::Test::Methods
