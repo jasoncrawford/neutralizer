@@ -25,5 +25,9 @@ describe SyntaxAnalyzer do
     let(:text) { "This is a test" }
     subject { analyzer.analyze text }
     it { is_expected.to_not be_nil }
+
+    it "has four tokens" do
+      expect(subject.tokens.length).to eq(4)
+    end
   end
 end
