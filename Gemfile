@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'rspec'
 
 group :test do
+  gem 'rspec'
   gem 'rack-test'
 end
