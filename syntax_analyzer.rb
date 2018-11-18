@@ -25,12 +25,18 @@ class SyntaxAnalyzer
   def get_fake_response(text)
   end
 
+  def record_fake_response(text, response)
+  end
+
   def analyze(text)
     fake_response = get_fake_response text
     return fake_response if fake_response
 
     document = {content: text, type: :PLAIN_TEXT}
     encoding_type = Google::Cloud::Language::V1::EncodingType::UTF8
-    client.analyze_syntax document, encoding_type: encoding_type
+    response = client.analyze_syntax document, encoding_type: encoding_type
+
+    record_fake_response text, response
+    response
   end
 end
