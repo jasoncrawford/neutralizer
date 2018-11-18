@@ -2,6 +2,9 @@ require 'json'
 require 'google/cloud/language'
 
 class SyntaxAnalyzer
+  def credentials_io
+  end
+
   def credentials_json
     {
       "type": "service_account",

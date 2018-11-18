@@ -8,6 +8,11 @@ describe SyntaxAnalyzer do
     it { is_expected.to be_a(Hash) }
   end
 
+  describe "credentials_io" do
+    subject { analyzer.credentials_io }
+    it { is_expected.to be_nil }
+  end
+
   describe "credentials" do
     subject { analyzer.credentials }
     it { is_expected.to_not be_nil }
