@@ -30,5 +30,13 @@ describe SyntaxAnalyzer do
     it "has four tokens" do
       expect(subject.tokens.length).to eq(4)
     end
+
+    describe "each token" do
+      subject { response.tokens[0] }
+
+      it "has text content" do
+        expect(subject.text.content).to eq("This")
+      end
+    end
   end
 end
