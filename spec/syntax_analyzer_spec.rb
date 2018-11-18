@@ -28,5 +28,6 @@ describe SyntaxAnalyzer do
 
   describe "client" do
     subject { analyzer.client }
+    it { is_expected.to_not be_nil }
   end
 end
