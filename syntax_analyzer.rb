@@ -53,7 +53,7 @@ class SyntaxAnalyzer
   def record_fake_response(params, response)
     FileUtils.mkdir_p dirpath
     filepath = filepath_for_params params
-    File.open(filepath, "w") {|f| f.write(serialize response)}
+    File.write(filepath, serialize(response))
   end
 
   def analyze(text)
