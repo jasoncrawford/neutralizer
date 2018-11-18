@@ -5,6 +5,8 @@ GEM
     rack (1.6.11)
     rack-protection (1.5.3)
       rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -28,6 +30,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rack-test
   rspec
   sinatra
 

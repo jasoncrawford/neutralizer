@@ -1,4 +1,5 @@
 require_relative 'server'
+require 'rack/test'
 
 describe do
   it "is true" do
