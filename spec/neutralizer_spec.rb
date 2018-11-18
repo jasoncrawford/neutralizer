@@ -9,6 +9,9 @@ describe Neutralizer do
   end
 
   describe "generate replacements" do
+    let(:text) { "He said" }
+    subject { neutralizer.generate_replacements text }
+    it { is_expected.to eq([]) }
   end
 
   describe "neutralize" do
