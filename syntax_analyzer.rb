@@ -32,18 +32,20 @@ class SyntaxAnalyzer
     Digest::MD5.hexdigest text
   end
 
+  def filename_for_text(text)
+    "#{key_for_text text}.json"
+  end
+
   def get_fake_response(text)
-    key = key_for_text text
-    filepath = "#{dirpath}/#{key}.json"
+    filepath = "#{dirpath}/#{filename_for_text text}"
     return nil unless File.exists? filepath
     json = File.read(filepath)
     Google::Cloud::Language::V1::AnalyzeSyntaxResponse.new(JSON.parse json)
   end
 
   def record_fake_response(text, response)
-    key = key_for_text text
     FileUtils.mkdir_p dirpath
-    filepath = "#{dirpath}/#{key}.json"
+    filepath = "#{dirpath}/#{filename_for_text text}"
     File.open(filepath, "w") {|f| f.write response.to_h.to_json}
   end
 
