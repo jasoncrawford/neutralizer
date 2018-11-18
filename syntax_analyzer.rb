@@ -29,15 +29,9 @@ class SyntaxAnalyzer
   end
 
   def analyze(text)
-    fake_response = @fake.get_fake_response text
-    return fake_response if fake_response
-
     document = {content: text, type: :PLAIN_TEXT}
     encoding_type = Google::Cloud::Language::V1::EncodingType::UTF8
-    response = client.analyze_syntax document, encoding_type: encoding_type
-
-    @fake.record_fake_response text, response
-    response
+    client.analyze_syntax document, encoding_type: encoding_type
   end
 end
 
@@ -72,5 +66,15 @@ class SyntaxAnalyzerFake
     FileUtils.mkdir_p dirpath
     filepath = filepath_for_params params
     File.write filepath, serialize(response)
+  end
+
+  def with_fake_response(params, &block)
+    fake_response = get_fake_response params
+    return fake_response if fake_response
+
+    response = @block.call params
+
+    record_fake_response params, response
+    response
   end
 end
