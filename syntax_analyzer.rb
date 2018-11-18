@@ -28,7 +28,7 @@ class SyntaxAnalyzer
     key = Digest::MD5.hexdigest text
     dirpath = 'spec/fakes'
     filepath = "#{dirpath}/#{key}.json"
-    nil
+    return nil unless File.exists? filepath
   end
 
   def record_fake_response(text, response)
