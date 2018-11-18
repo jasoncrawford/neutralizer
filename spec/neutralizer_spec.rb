@@ -56,6 +56,11 @@ describe Neutralizer do
       end
       it { is_expected.to eq(expected) }
     end
+
+    context "He wants her to know that she can join his team" do
+      let(:text) { "He wants her to know that she can join his team" }
+      it { is_expected.to be_an(Array) }
+    end
   end
 
   describe "neutralize" do
