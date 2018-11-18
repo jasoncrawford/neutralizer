@@ -18,7 +18,7 @@ describe "server" do
       post '/neutralize'
     end
 
-    it "should work" do
+    it "should succeed" do
       expect(last_response).to be_ok
     end
 
