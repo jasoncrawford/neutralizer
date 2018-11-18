@@ -5,6 +5,10 @@ require 'google/cloud/language'
 require 'google/cloud/language/v1'
 
 class SyntaxAnalyzer
+  def initialize
+    @fake = SyntaxAnalyzerFake.new
+  end
+
   def credentials
     {
       type: "service_account",
@@ -24,6 +28,20 @@ class SyntaxAnalyzer
     @client ||= Google::Cloud::Language.new credentials: credentials
   end
 
+  def analyze(text)
+    fake_response = @fake.get_fake_response text
+    return fake_response if fake_response
+
+    document = {content: text, type: :PLAIN_TEXT}
+    encoding_type = Google::Cloud::Language::V1::EncodingType::UTF8
+    response = client.analyze_syntax document, encoding_type: encoding_type
+
+    @fake.record_fake_response text, response
+    response
+  end
+end
+
+class SyntaxAnalyzerFake
   def dirpath
     'spec/fakes'
   end
@@ -55,19 +73,4 @@ class SyntaxAnalyzer
     filepath = filepath_for_params params
     File.write filepath, serialize(response)
   end
-
-  def analyze(text)
-    fake_response = get_fake_response text
-    return fake_response if fake_response
-
-    document = {content: text, type: :PLAIN_TEXT}
-    encoding_type = Google::Cloud::Language::V1::EncodingType::UTF8
-    response = client.analyze_syntax document, encoding_type: encoding_type
-
-    record_fake_response text, response
-    response
-  end
-end
-
-class SyntaxAnalyzerFake
 end
