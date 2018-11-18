@@ -1,4 +1,5 @@
 #!/bin/sh
 
-bundle && \
-git add . && foreman run rspec && git commit -m tcr || git reset --hard
+(git diff --name-only | grep Gemfile) && bundle
+git add .
+foreman run rspec && git commit -m tcr || git reset --hard
