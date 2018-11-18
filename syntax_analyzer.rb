@@ -29,7 +29,6 @@ class SyntaxAnalyzer
     dirpath = 'spec/fakes'
     filepath = "#{dirpath}/#{key}.json"
     return nil unless File.exists? filepath
-    puts "returning fake response from #{filepath}"
     json = File.read(filepath)
     Google::Cloud::Language::V1::AnalyzeSyntaxResponse.new(JSON.parse json)
   end
@@ -39,7 +38,6 @@ class SyntaxAnalyzer
     dirpath = 'spec/fakes'
     FileUtils.mkdir_p dirpath
     filepath = "#{dirpath}/#{key}.json"
-    puts "recording fake response in #{filepath}"
     File.open(filepath, "w") {|f| f.write response.to_h.to_json}
   end
 
