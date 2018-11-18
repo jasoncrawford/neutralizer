@@ -3,6 +3,10 @@ require_relative '../syntax_analyzer'
 describe SyntaxAnalyzer do
   let(:analyzer) { SyntaxAnalyzer.new }
 
+  it 'has a private key' do
+    expect(ENV['GOOGLE_APPLICATION_PRIVATE_KEY']).to_not be_nil
+  end
+
   describe "credentials_json" do
     subject { analyzer.credentials_json }
     it { is_expected.to be_a(Hash) }
