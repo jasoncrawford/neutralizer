@@ -1,2 +1,4 @@
 #!/bin/sh
-bundle && git add . && rspec && git commit -m tcr || git reset --hard
+
+# bundle && \
+git add . && rspec && git commit -m tcr || git reset --hard
