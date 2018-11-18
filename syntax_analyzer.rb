@@ -20,4 +20,7 @@ class SyntaxAnalyzer
   def client
     @client ||= Google::Cloud::Language.new credentials: credentials
   end
+
+  def analyze(text)
+  end
 end
