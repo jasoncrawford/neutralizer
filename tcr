@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # bundle && \
-git add . && rspec && git commit -m tcr || git reset --hard
+git add . && foreman run rspec && git commit -m tcr || git reset --hard
