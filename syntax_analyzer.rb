@@ -68,3 +68,6 @@ class SyntaxAnalyzer
     response
   end
 end
+
+class SyntaxAnalyzerFake
+end
