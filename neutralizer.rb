@@ -9,13 +9,14 @@ class Neutralizer
     analysis = analyzer.analyze text
     tokens = analysis.tokens
 
+    replacements = []
     token = tokens[0]
     gender = token.part_of_speech.gender
     if gender == :MASCULINE || gender == :FEMININE
-      [{orig: "He", offset: 0, repl: "They"}]
-    else
-      []
+      replacements << {orig: "He", offset: 0, repl: "They"}
     end
+
+    replacements
   end
 
   def neutralize(text)
