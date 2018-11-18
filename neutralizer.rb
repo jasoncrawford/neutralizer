@@ -27,6 +27,8 @@ class Neutralizer
         "Them"
       when :POSS
         "Their"
+      when :ATTR
+        "Theirs"
       else
         "They"
       end

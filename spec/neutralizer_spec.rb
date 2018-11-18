@@ -43,6 +43,7 @@ describe Neutralizer do
 
     context "The credit is his" do
       let(:text) { "The credit is his" }
+      it { is_expected.to eq([{orig: "his", offset: 14, repl: "theirs"}])}
     end
 
     context "She thinks he will" do
