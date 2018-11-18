@@ -22,7 +22,13 @@ class SyntaxAnalyzer
     @client ||= Google::Cloud::Language.new credentials: credentials
   end
 
+  def get_fake_response(text)
+  end
+
   def analyze(text)
+    fake_response = get_fake_response text
+    return fake_response if fake_response
+
     document = {content: text, type: :PLAIN_TEXT}
     encoding_type = Google::Cloud::Language::V1::EncodingType::UTF8
     client.analyze_syntax document, encoding_type: encoding_type
