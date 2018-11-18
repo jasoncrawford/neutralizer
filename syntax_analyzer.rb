@@ -31,7 +31,8 @@ class SyntaxAnalyzer
     key = Digest::MD5.hexdigest text
     dirpath = 'spec/fakes'
     FileUtils.mkdir_p dirpath
-    nil
+    filepath = "#{dirpath}/#{key}.json"
+    File.open(filepath, "w") {|f| f.write response.to_h.to_json}
   end
 
   def analyze(text)
