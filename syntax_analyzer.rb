@@ -44,11 +44,14 @@ class SyntaxAnalyzer
     response.to_h.to_json
   end
 
+  def deserialize(string)
+    Google::Cloud::Language::V1::AnalyzeSyntaxResponse.new(JSON.parse string)
+  end
+
   def get_fake_response(text)
     filepath = filepath_for_text text
     return nil unless File.exists? filepath
-    json = File.read(filepath)
-    Google::Cloud::Language::V1::AnalyzeSyntaxResponse.new(JSON.parse json)
+    deserialize(File.read filepath)
   end
 
   def record_fake_response(text, response)
