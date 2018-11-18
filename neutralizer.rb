@@ -18,6 +18,7 @@ class Neutralizer
     tokens.each do |token|
       next unless is_gendered?(token)
       text = token.text
+      edge = token.dependency_edge
       repl = "They"
       repl.downcase! if text.content == text.content.downcase
       replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
