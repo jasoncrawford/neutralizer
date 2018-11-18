@@ -23,7 +23,8 @@ describe SyntaxAnalyzer do
 
   describe "analyze" do
     let(:text) { "This is a test" }
-    subject { analyzer.analyze text }
+    let(:response) { analyzer.analyze text }
+    subject { response }
     it { is_expected.to_not be_nil }
 
     it "has four tokens" do
