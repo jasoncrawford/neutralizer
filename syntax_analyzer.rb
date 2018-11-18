@@ -2,7 +2,7 @@ require 'google/cloud/language'
 
 class SyntaxAnalyzer
   def credentials_json
-    '{"fake":"json"}'
+    {fake: "json"}
   end
 
   def credentials
