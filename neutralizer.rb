@@ -10,6 +10,10 @@ class Neutralizer
     return gender == :MASCULINE || gender == :FEMININE
   end
 
+  def neutralize_verb(text)
+    text
+  end
+
   def generate_replacements(text)
     # puts "TEXT: #{text}"
     analysis = analyzer.analyze text
@@ -50,7 +54,7 @@ class Neutralizer
         vpos = verb.part_of_speech
 
         puts "need to replace '#{vtext.content}' (#{vedge.label}, #{vpos.tense}, #{vpos.mood}) for '#{text.content}' -> '#{repl}'?"
-        repl = vtext.content
+        repl = neutralize_verb vtext.content
         replacements << {orig: vtext.content, offset: vtext.begin_offset, repl: repl}
       end
     end
