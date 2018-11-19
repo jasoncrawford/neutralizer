@@ -10,7 +10,8 @@ class Neutralizer
     return gender == :MASCULINE || gender == :FEMININE
   end
 
-  def replacement_for_gendered_token(token)
+  def replacement_for_gendered_token(text, repl)
+    {orig: text.content, offset: text.begin_offset, repl: repl}
   end
 
   def neutralize_verb(text)
@@ -48,7 +49,7 @@ class Neutralizer
 
     repl.downcase! if text.content == text.content.downcase
     # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
-    replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
+    replacements << replacement_for_gendered_token(text, repl)
 
     if pos.case == :NOMINATIVE
       verb = tokens[edge.head_token_index]
