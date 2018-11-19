@@ -104,10 +104,11 @@ describe Neutralizer do
       let(:replacements) do
         [
           {orig: "She", offset: 0, repl: "They"},
+          {orig: "thinks", offset: 4, repl: "think"},
           {orig: "he", offset: 11, repl: "they"},
         ]
       end
-      it { is_expected.to eq("They thinks they will") }
+      it { is_expected.to eq("They think they will") }
     end
   end
 
