@@ -24,7 +24,11 @@ class Neutralizer
 
       repl = case edge.label
       when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
-        "They"
+        case pos.case
+        when :NOMINATIVE then "They"
+        when :ACCUSATIVE then "Them"
+        else throw "unknown case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+        end
       when :POBJ, :DOBJ, :IOBJ, :GOBJ
         "Them"
       when :POSS, :PS
