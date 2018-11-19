@@ -11,6 +11,8 @@ class Neutralizer
   end
 
   def replacement_for_gendered_token(text, repl)
+    repl.downcase! if text.content == text.content.downcase
+    # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
     {orig: text.content, offset: text.begin_offset, repl: repl}
   end
 
@@ -47,8 +49,6 @@ class Neutralizer
       throw "unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
     end
 
-    repl.downcase! if text.content == text.content.downcase
-    # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
     replacements << replacement_for_gendered_token(text, repl)
 
     if pos.case == :NOMINATIVE
