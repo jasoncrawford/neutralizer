@@ -11,6 +11,10 @@ class Neutralizer
   end
 
   def replacement_for_gendered_token(token, text, edge, pos)
+    text = token.text
+    edge = token.dependency_edge
+    pos = token.part_of_speech
+
     repl = case edge.label
     when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
       case pos.case
