@@ -63,6 +63,7 @@ describe Neutralizer do
       let(:expected) do
         [
           {orig: "He", offset: 0, repl: "They"},
+          {orig: "wants", offset: 3, repl: "want"},
           {orig: "her", offset: 9, repl: "them"},
           {orig: "she", offset: 26, repl: "they"},
           {orig: "his", offset: 39, repl: "their"},
