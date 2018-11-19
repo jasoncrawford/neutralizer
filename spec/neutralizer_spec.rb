@@ -80,7 +80,7 @@ describe Neutralizer do
           {orig: "her", offset: 16, repl: "their"},
         ]
       end
-      it { is_expected.to include(*expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 
