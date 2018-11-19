@@ -16,7 +16,7 @@ class Neutralizer
       case pos.case
       when :NOMINATIVE then "They"
       when :ACCUSATIVE then "Them"
-      else throw "unexpected case #{pos.case} with label #{edge.label}"
+      else raise "unexpected case #{pos.case} with label #{edge.label}"
       end
     when :POBJ, :DOBJ, :IOBJ, :GOBJ
       "Them"
@@ -25,7 +25,7 @@ class Neutralizer
     when :ATTR
       "Theirs"
     else
-      throw "unexpected label #{edge.label}"
+      raise "unexpected label #{edge.label}"
     end
   end
 
@@ -34,7 +34,11 @@ class Neutralizer
     edge = token.dependency_edge
     pos = token.part_of_speech
 
-    repl = neutralize_pronoun edge, pos
+    repl = begin
+      neutralize_pronoun edge, pos
+    rescue => error
+      raise "#{error.message} for token '#{text.content}' at #{text.begin_offset}"
+    end
     repl.downcase! if text.content == text.content.downcase
 
     # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
