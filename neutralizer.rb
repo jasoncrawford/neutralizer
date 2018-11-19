@@ -51,6 +51,7 @@ class Neutralizer
     replacement = replacements[0]
     if replacement
       first = replacement.offset
+      last = first + replacement.orig.length
     end
     text
   end
