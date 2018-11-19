@@ -49,6 +49,9 @@ class Neutralizer
 
   def replace_tokens(text, replacements)
     replacement = replacements[0]
+    if replacement
+      first = replacement.offset
+    end
     text
   end
 
