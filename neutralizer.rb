@@ -41,6 +41,9 @@ class Neutralizer
     end
   end
 
+  def replacement_for_verb
+  end
+
   def replacements_for_token(token, tokens)
     return [] unless is_gendered?(token)
     replacements = []
