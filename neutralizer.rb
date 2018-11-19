@@ -40,7 +40,7 @@ class Neutralizer
       end
 
       repl.downcase! if text.content == text.content.downcase
-      puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
+      # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
       replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
     end
 
