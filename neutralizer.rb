@@ -33,6 +33,12 @@ class Neutralizer
     {orig: text.content, offset: text.begin_offset, repl: repl}
   end
 
+  def verb_to_replace_for_token(token, tokens)
+    if token.part_of_speech.case == :NOMINATIVE
+      verb = tokens[token.dependency_edge.head_token_index]
+    end
+  end
+
   def neutralize_verb(text)
     case text
     when "is" then "are"
@@ -59,8 +65,8 @@ class Neutralizer
 
     replacements << replacement_for_gendered_token(text, edge, pos)
 
-    if pos.case == :NOMINATIVE
-      verb = tokens[edge.head_token_index]
+    verb = verb_to_replace_for_token token, tokens
+    if verb
       replacement = replacement_for_verb verb
       replacements << replacement if replacement
     end
