@@ -10,7 +10,7 @@ class Neutralizer
     return gender == :MASCULINE || gender == :FEMININE
   end
 
-  def replacement_for_gendered_token(token, text, edge, pos)
+  def replacement_for_gendered_token(token)
     text = token.text
     edge = token.dependency_edge
     pos = token.part_of_speech
@@ -67,7 +67,7 @@ class Neutralizer
     edge = token.dependency_edge
     pos = token.part_of_speech
 
-    replacements << replacement_for_gendered_token(token, text, edge, pos)
+    replacements << replacement_for_gendered_token(token)
 
     verb = verb_to_replace_for_token token
     if verb
