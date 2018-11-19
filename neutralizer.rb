@@ -42,6 +42,11 @@ class Neutralizer
       repl.downcase! if text.content == text.content.downcase
       # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
       replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
+
+      if pos.case == :NOMINATIVE
+        verb = tokens[edge.head_token_index]
+        puts "need to replace '#{verb.text.content}' for '#{text.content}' -> '#{repl}'?"
+      end
     end
 
     replacements
