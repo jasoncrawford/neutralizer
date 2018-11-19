@@ -6,5 +6,6 @@ get '/' do
 end
 
 post '/neutralize' do
+  neutralizer = Neutralizer.new
   request.body.read
 end
