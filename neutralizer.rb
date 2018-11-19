@@ -27,7 +27,7 @@ class Neutralizer
         case pos.case
         when :NOMINATIVE then "They"
         when :ACCUSATIVE then "Them"
-        else throw "unknown case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+        else throw "unexpected case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
         end
       when :POBJ, :DOBJ, :IOBJ, :GOBJ
         "Them"
@@ -36,7 +36,7 @@ class Neutralizer
       when :ATTR
         "Theirs"
       else
-        throw "unknown label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+        throw "unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
       end
 
       repl.downcase! if text.content == text.content.downcase
