@@ -5,5 +5,5 @@ get '/' do
 end
 
 post '/neutralize' do
-  request.body
+  request.body.read
 end
