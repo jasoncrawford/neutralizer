@@ -50,12 +50,14 @@ class Neutralizer
   def replace_tokens(text, replacements)
     text = text.dup
     offset = 0
+
     replacements.each do |r|
       first = r[:offset] + offset
       last = first + r[:orig].length - 1
       text[first..last] = r[:repl]
       offset += r[:repl].length - r[:orig].length
     end
+
     text
   end
 
