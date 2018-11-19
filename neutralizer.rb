@@ -61,10 +61,6 @@ class Neutralizer
     if pos.case == :NOMINATIVE
       verb = tokens[edge.head_token_index]
       vtext = verb.text
-      vedge = verb.dependency_edge
-      vpos = verb.part_of_speech
-
-      # puts "need to replace '#{vtext.content}' (#{vedge.label}, #{vpos.tense}, #{vpos.mood}) for '#{text.content}' -> '#{repl}'?"
       replacement = replacement_for_verb(vtext)
       replacements << replacement if replacement
     end
