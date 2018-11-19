@@ -11,7 +11,7 @@ class Neutralizer
   end
 
   def generate_replacements(text)
-    puts "TEXT: #{text}"
+    # puts "TEXT: #{text}"
     analysis = analyzer.analyze text
     tokens = analysis.tokens
 
