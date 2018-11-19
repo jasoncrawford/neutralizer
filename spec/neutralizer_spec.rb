@@ -18,32 +18,32 @@ describe Neutralizer do
 
     context "He said" do
       let(:text) { "He said" }
-      it { is_expected.to eq([{orig: "He", offset: 0, repl: "They"}]) }
+      it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}]) }
     end
 
     context "She does" do
       let(:text) { "She does" }
-      it { is_expected.to eq([{orig: "She", offset: 0, repl: "They"}]) }
+      it { is_expected.to include(*[{orig: "She", offset: 0, repl: "They"}]) }
     end
 
     context "Yes she is" do
       let(:text) { "Yes she is" }
-      it { is_expected.to eq([{orig: "she", offset: 4, repl: "they"}]) }
+      it { is_expected.to include(*[{orig: "she", offset: 4, repl: "they"}]) }
     end
 
     context "I told her" do
       let(:text) { "I told her" }
-      it { is_expected.to eq([{orig: "her", offset: 7, repl: "them"}])}
+      it { is_expected.to include(*[{orig: "her", offset: 7, repl: "them"}])}
     end
 
     context "In her project" do
       let(:text) { "In her project" }
-      it { is_expected.to eq([{orig: "her", offset: 3, repl: "their"}])}
+      it { is_expected.to include(*[{orig: "her", offset: 3, repl: "their"}])}
     end
 
     context "The credit is his" do
       let(:text) { "The credit is his" }
-      it { is_expected.to eq([{orig: "his", offset: 14, repl: "theirs"}])}
+      it { is_expected.to include(*[{orig: "his", offset: 14, repl: "theirs"}])}
     end
 
     context "She thinks he will" do
@@ -54,7 +54,7 @@ describe Neutralizer do
           {orig: "he", offset: 11, repl: "they"},
         ]
       end
-      it { is_expected.to eq(expected) }
+      it { is_expected.to include(*expected) }
     end
 
     context "He wants her to know that she can join his team" do
@@ -67,7 +67,7 @@ describe Neutralizer do
           {orig: "his", offset: 39, repl: "their"},
         ]
       end
-      it { is_expected.to eq(expected) }
+      it { is_expected.to include(*expected) }
     end
 
     context "I gave her back her pen" do
@@ -78,7 +78,7 @@ describe Neutralizer do
           {orig: "her", offset: 16, repl: "their"},
         ]
       end
-      it { is_expected.to eq(expected) }
+      it { is_expected.to include(*expected) }
     end
   end
 
