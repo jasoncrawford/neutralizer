@@ -94,7 +94,7 @@ describe Neutralizer do
     context "He said" do
       let(:text) { "He said" }
       let(:replacements) { [{orig: "He", offset: 0, repl: "They"}] }
-      it { is_expected.to be_a(String) }
+      it { is_expected.to eq("They said") }
     end
   end
 
