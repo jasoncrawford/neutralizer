@@ -82,9 +82,7 @@ class Neutralizer
   def generate_replacements(text)
     analysis = analyzer.analyze text
     @tokens = analysis.tokens
-    replacements = @tokens.map {|token| replacements_for_token token}.flatten
-    puts "replacements for '#{text}': #{replacements.inspect}"
-    replacements
+    @tokens.map {|token| replacements_for_token token}.flatten
   end
 
   def replace_tokens(text, replacements)
