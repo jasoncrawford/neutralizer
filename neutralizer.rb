@@ -41,7 +41,8 @@ class Neutralizer
     end
   end
 
-  def replacement_for_verb(vtext, repl)
+  def replacement_for_verb(vtext)
+    repl = neutralize_verb vtext.content
     if repl != vtext.content
       {orig: vtext.content, offset: vtext.begin_offset, repl: repl}
     end
@@ -64,8 +65,7 @@ class Neutralizer
       vpos = verb.part_of_speech
 
       # puts "need to replace '#{vtext.content}' (#{vedge.label}, #{vpos.tense}, #{vpos.mood}) for '#{text.content}' -> '#{repl}'?"
-      repl = neutralize_verb vtext.content
-      replacement = replacement_for_verb(vtext, repl)
+      replacement = replacement_for_verb(vtext)
       replacements << replacement if replacement
     end
 
