@@ -48,6 +48,7 @@ class Neutralizer
   end
 
   def replace_tokens(text, replacements)
+    replacement = replacements[0]
     text
   end
 
