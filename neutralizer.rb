@@ -73,7 +73,7 @@ class Neutralizer
   def replace_tokens(text, replacements)
     text = text.dup
 
-    sorted = replacements.sort {|a, b| b[:offset] - a[:offset]}
+    sorted = replacements.sort_by {|r| r[:offset]}.reverse
     sorted.each do |r|
       first = r[:offset]
       last = first + r[:orig].length - 1
