@@ -10,12 +10,8 @@ class Neutralizer
     return gender == :MASCULINE || gender == :FEMININE
   end
 
-  def replacement_for_gendered_token(token)
-    text = token.text
-    edge = token.dependency_edge
-    pos = token.part_of_speech
-
-    repl = case edge.label
+  def neutralize_pronoun(edge, pos)
+    case edge.label
     when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
       case pos.case
       when :NOMINATIVE then "They"
@@ -31,6 +27,14 @@ class Neutralizer
     else
       throw "unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
     end
+  end
+
+  def replacement_for_gendered_token(token)
+    text = token.text
+    edge = token.dependency_edge
+    pos = token.part_of_speech
+
+    repl = neutralize_pronoun edge, pos
 
     repl.downcase! if text.content == text.content.downcase
     # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
