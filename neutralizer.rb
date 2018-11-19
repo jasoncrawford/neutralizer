@@ -53,6 +53,7 @@ class Neutralizer
     if replacement
       first = replacement[:offset]
       last = first + replacement[:orig].length
+      text[first..last] = replacement[:repl]
     end
     text
   end
