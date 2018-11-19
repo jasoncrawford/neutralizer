@@ -49,11 +49,12 @@ class Neutralizer
 
   def replace_tokens(text, replacements)
     text = text.dup
-    replacement = replacements[0]
-    if replacement
-      first = replacement[:offset]
-      last = first + replacement[:orig].length - 1
-      text[first..last] = replacement[:repl]
+    offset = 0
+    replacements.each do |r|
+      first = r[:offset] + offset
+      last = first + r[:orig].length - 1
+      text[first..last] = r[:repl]
+      offset += r[:repl].length - r[:orig].length
     end
     text
   end
