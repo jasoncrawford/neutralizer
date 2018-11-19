@@ -7,5 +7,5 @@ end
 
 post '/neutralize' do
   neutralizer = Neutralizer.new
-  request.body.read
+  text = request.body.read
 end
