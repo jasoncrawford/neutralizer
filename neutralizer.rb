@@ -34,14 +34,13 @@ class Neutralizer
     edge = token.dependency_edge
     pos = token.part_of_speech
 
-    repl = begin
-      neutralize_pronoun edge, pos
+    begin
+      repl = neutralize_pronoun edge, pos
+      repl.downcase! if text.content == text.content.downcase
+      {orig: text.content, offset: text.begin_offset, repl: repl}
     rescue => error
       raise "#{error.message} for token '#{text.content}' at #{text.begin_offset}"
     end
-    repl.downcase! if text.content == text.content.downcase
-
-    {orig: text.content, offset: text.begin_offset, repl: repl}
   end
 
   def verb_to_replace_for_token(token)
