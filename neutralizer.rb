@@ -10,7 +10,24 @@ class Neutralizer
     return gender == :MASCULINE || gender == :FEMININE
   end
 
-  def replacement_for_gendered_token(text, repl)
+  def replacement_for_gendered_token(text, edge, pos)
+    repl = case edge.label
+    when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
+      case pos.case
+      when :NOMINATIVE then "They"
+      when :ACCUSATIVE then "Them"
+      else throw "unexpected case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+      end
+    when :POBJ, :DOBJ, :IOBJ, :GOBJ
+      "Them"
+    when :POSS, :PS
+      "Their"
+    when :ATTR
+      "Theirs"
+    else
+      throw "unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+    end
+
     repl.downcase! if text.content == text.content.downcase
     # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
     {orig: text.content, offset: text.begin_offset, repl: repl}
@@ -32,24 +49,7 @@ class Neutralizer
     edge = token.dependency_edge
     pos = token.part_of_speech
 
-    repl = case edge.label
-    when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
-      case pos.case
-      when :NOMINATIVE then "They"
-      when :ACCUSATIVE then "Them"
-      else throw "unexpected case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
-      end
-    when :POBJ, :DOBJ, :IOBJ, :GOBJ
-      "Them"
-    when :POSS, :PS
-      "Their"
-    when :ATTR
-      "Theirs"
-    else
-      throw "unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
-    end
-
-    replacements << replacement_for_gendered_token(text, repl)
+    replacements << replacement_for_gendered_token(text, edge, pos)
 
     if pos.case == :NOMINATIVE
       verb = tokens[edge.head_token_index]
