@@ -49,7 +49,7 @@ class Neutralizer
         vedge = verb.dependency_edge
         vpos = verb.part_of_speech
 
-        puts "need to replace '#{vtext.content}' (#{vedge.label}, #{vpos.case}, #{vpos.tense}, #{vpos.mood}) for '#{text.content}' -> '#{repl}'?"
+        puts "need to replace '#{vtext.content}' (#{vedge.label}, #{vpos.tense}, #{vpos.mood}) for '#{text.content}' -> '#{repl}'?"
       end
     end
 
