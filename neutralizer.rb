@@ -50,9 +50,9 @@ class Neutralizer
   end
 
   def neutralize_verb(text)
-    case text
-    when "is" then "are"
-    when "does" then "do"
+    case text.downcase
+    when "is" then "Are"
+    when "does" then "Do"
     else text.sub(/s?$/, '')
     end
   end
@@ -60,6 +60,7 @@ class Neutralizer
   def replacement_for_verb(token)
     text = token.text
     repl = neutralize_verb text.content
+    repl.downcase! if text.content == text.content.downcase
     if repl != text.content
       {orig: text.content, offset: text.begin_offset, repl: repl}
     end
