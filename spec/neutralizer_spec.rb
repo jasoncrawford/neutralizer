@@ -13,7 +13,7 @@ describe Neutralizer do
 
     context "It is" do
       let(:text) { "It is" }
-      it { is_expected.to include(*[]) }
+      it { is_expected.to eq([]) }
     end
 
     context "He said" do
