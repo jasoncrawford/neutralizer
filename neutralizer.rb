@@ -18,6 +18,51 @@ class Neutralizer
     end
   end
 
+  def replacements_for_token(token, tokens)
+    return [] unless is_gendered?(token)
+    replacements = []
+
+    text = token.text
+    edge = token.dependency_edge
+    pos = token.part_of_speech
+
+    repl = case edge.label
+    when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
+      case pos.case
+      when :NOMINATIVE then "They"
+      when :ACCUSATIVE then "Them"
+      else throw "unexpected case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+      end
+    when :POBJ, :DOBJ, :IOBJ, :GOBJ
+      "Them"
+    when :POSS, :PS
+      "Their"
+    when :ATTR
+      "Theirs"
+    else
+      throw "unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+    end
+
+    repl.downcase! if text.content == text.content.downcase
+    # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
+    replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
+
+    if pos.case == :NOMINATIVE
+      verb = tokens[edge.head_token_index]
+      vtext = verb.text
+      vedge = verb.dependency_edge
+      vpos = verb.part_of_speech
+
+      # puts "need to replace '#{vtext.content}' (#{vedge.label}, #{vpos.tense}, #{vpos.mood}) for '#{text.content}' -> '#{repl}'?"
+      repl = neutralize_verb vtext.content
+      if repl != vtext.content
+        replacements << {orig: vtext.content, offset: vtext.begin_offset, repl: repl}
+      end
+    end
+
+    replacements
+  end
+
   def generate_replacements(text)
     # puts "TEXT: #{text}"
     analysis = analyzer.analyze text
@@ -25,44 +70,7 @@ class Neutralizer
 
     replacements = []
     tokens.each do |token|
-      next unless is_gendered?(token)
-      text = token.text
-      edge = token.dependency_edge
-      pos = token.part_of_speech
-
-      repl = case edge.label
-      when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
-        case pos.case
-        when :NOMINATIVE then "They"
-        when :ACCUSATIVE then "Them"
-        else throw "unexpected case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
-        end
-      when :POBJ, :DOBJ, :IOBJ, :GOBJ
-        "Them"
-      when :POSS, :PS
-        "Their"
-      when :ATTR
-        "Theirs"
-      else
-        throw "unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
-      end
-
-      repl.downcase! if text.content == text.content.downcase
-      # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
-      replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
-
-      if pos.case == :NOMINATIVE
-        verb = tokens[edge.head_token_index]
-        vtext = verb.text
-        vedge = verb.dependency_edge
-        vpos = verb.part_of_speech
-
-        # puts "need to replace '#{vtext.content}' (#{vedge.label}, #{vpos.tense}, #{vpos.mood}) for '#{text.content}' -> '#{repl}'?"
-        repl = neutralize_verb vtext.content
-        if repl != vtext.content
-          replacements << {orig: vtext.content, offset: vtext.begin_offset, repl: repl}
-        end
-      end
+      replacements += replacements_for_token token, tokens
     end
 
     replacements
