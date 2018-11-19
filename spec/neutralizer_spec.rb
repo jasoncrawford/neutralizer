@@ -72,7 +72,13 @@ describe Neutralizer do
 
     context "I gave her back her pen" do
       let(:text) { "I gave her back her pen" }
-      it { is_expected.to be_an(Array) }
+      let(:expected) do
+        [
+          {orig: "her", offset: 7, repl: "them"},
+          {orig: "her", offset: 16, repl: "their"},
+        ]
+      end
+      it { is_expected.to eq(expected) }
     end
   end
 
