@@ -61,7 +61,7 @@ class Neutralizer
 
     if pos.case == :NOMINATIVE
       verb = tokens[edge.head_token_index]
-      replacement = replacement_for_verb(verb)
+      replacement = replacement_for_verb verb
       replacements << replacement if replacement
     end
 
