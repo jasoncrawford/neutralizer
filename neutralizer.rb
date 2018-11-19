@@ -33,9 +33,9 @@ class Neutralizer
     {orig: text.content, offset: text.begin_offset, repl: repl}
   end
 
-  def verb_to_replace_for_token(token, tokens)
+  def verb_to_replace_for_token(token)
     if token.part_of_speech.case == :NOMINATIVE
-      verb = tokens[token.dependency_edge.head_token_index]
+      verb = @tokens[token.dependency_edge.head_token_index]
     end
   end
 
@@ -55,7 +55,7 @@ class Neutralizer
     end
   end
 
-  def replacements_for_token(token, tokens)
+  def replacements_for_token(token)
     return [] unless is_gendered?(token)
     replacements = []
 
@@ -65,7 +65,7 @@ class Neutralizer
 
     replacements << replacement_for_gendered_token(text, edge, pos)
 
-    verb = verb_to_replace_for_token token, tokens
+    verb = verb_to_replace_for_token token
     if verb
       replacement = replacement_for_verb verb
       replacements << replacement if replacement
@@ -77,8 +77,8 @@ class Neutralizer
   def generate_replacements(text)
     # puts "TEXT: #{text}"
     analysis = analyzer.analyze text
-    tokens = analysis.tokens
-    tokens.map {|token| replacements_for_token token, tokens}.flatten
+    @tokens = analysis.tokens
+    @tokens.map {|token| replacements_for_token token}.flatten
   end
 
   def replace_tokens(text, replacements)
