@@ -20,6 +20,7 @@ class Neutralizer
       next unless is_gendered?(token)
       text = token.text
       edge = token.dependency_edge
+      pos = token.part_of_speech
 
       repl = case edge.label
       when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
@@ -35,7 +36,6 @@ class Neutralizer
       end
 
       repl.downcase! if text.content == text.content.downcase
-      pos = token.part_of_speech
       puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
       replacements << {orig: text.content, offset: text.begin_offset, repl: repl}
     end
