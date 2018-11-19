@@ -15,15 +15,15 @@ describe "server" do
 
   describe "neutralize" do
     before do
-      post '/neutralize', "body"
+      post '/neutralize', "She thinks he will"
     end
 
     it "should succeed" do
       expect(last_response).to be_ok
     end
 
-    it "should echo the body" do
-      expect(last_response.body).to eql('body')
+    it "should neutralize the body" do
+      expect(last_response.body).to eql('They thinks they will')
     end
   end
 end
