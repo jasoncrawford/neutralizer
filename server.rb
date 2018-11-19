@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative 'neutralizer'
 
 get '/' do
   "hello, world!"
