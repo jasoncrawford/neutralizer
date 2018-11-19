@@ -67,13 +67,7 @@ class Neutralizer
     # puts "TEXT: #{text}"
     analysis = analyzer.analyze text
     tokens = analysis.tokens
-
-    replacements = []
-    tokens.each do |token|
-      replacements += replacements_for_token token, tokens
-    end
-
-    replacements
+    tokens.map {|token| replacements_for_token token, tokens}.flatten
   end
 
   def replace_tokens(text, replacements)
