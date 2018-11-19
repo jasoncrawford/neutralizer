@@ -121,5 +121,10 @@ describe Neutralizer do
       let(:text) { "He said" }
       it { is_expected.to eq("They said") }
     end
+
+    context "I gave her back her pen" do
+      let(:text) { "I gave her back her pen" }
+      it { is_expected.to eq("I gave them back their pen") }
+    end
   end
 end
