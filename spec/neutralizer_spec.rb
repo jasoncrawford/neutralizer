@@ -69,7 +69,7 @@ describe Neutralizer do
           {orig: "his", offset: 39, repl: "their"},
         ]
       end
-      it { is_expected.to include(*expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "I gave her back her pen" do
