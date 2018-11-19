@@ -47,6 +47,10 @@ class Neutralizer
     replacements
   end
 
+  def replace_tokens(text, replacements)
+    text
+  end
+
   def neutralize(text)
     text
   end

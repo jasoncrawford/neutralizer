@@ -82,6 +82,16 @@ describe Neutralizer do
     end
   end
 
+  describe "replace tokens" do
+    subject { neutralizer.replace_tokens text, replacements }
+
+    context "It is" do
+      let(:text) { "It is" }
+      let(:replacements) { [] }
+      it { is_expected.to eq(text) }
+    end
+  end
+
   describe "neutralize" do
     let(:text) { "He said" }
     subject { neutralizer.neutralize text }
