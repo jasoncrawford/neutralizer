@@ -90,6 +90,12 @@ describe Neutralizer do
       let(:replacements) { [] }
       it { is_expected.to eq(text) }
     end
+
+    context "He said" do
+      let(:text) { "He said" }
+      let(:replacements) { [{orig: "He", offset: 0, repl: "They"}] }
+      it { is_expected.to be_a(String) }
+    end
   end
 
   describe "neutralize" do

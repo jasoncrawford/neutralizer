@@ -51,8 +51,8 @@ class Neutralizer
     text = text.dup
     replacement = replacements[0]
     if replacement
-      first = replacement.offset
-      last = first + replacement.orig.length
+      first = replacement[:offset]
+      last = first + replacement[:orig].length
     end
     text
   end
