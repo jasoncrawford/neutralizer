@@ -66,10 +66,8 @@ class Neutralizer
     replacements << replacement_for_gendered_token(token)
 
     verb = verb_to_replace_for_token token
-    if verb
-      replacement = replacement_for_verb verb
-      replacements << replacement if replacement
-    end
+    replacement = replacement_for_verb verb if verb
+    replacements << replacement if replacement
 
     replacements
   end
