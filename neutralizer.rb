@@ -10,6 +10,9 @@ class Neutralizer
     return gender == :MASCULINE || gender == :FEMININE
   end
 
+  def replacement_for_gendered_token(token)
+  end
+
   def neutralize_verb(text)
     case text
     when "is" then "are"
