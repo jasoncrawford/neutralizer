@@ -41,8 +41,8 @@ class Neutralizer
     end
   end
 
-  def replacement_for_verb(verb)
-    text = verb.text
+  def replacement_for_verb(token)
+    text = token.text
     repl = neutralize_verb text.content
     if repl != text.content
       {orig: text.content, offset: text.begin_offset, repl: repl}
