@@ -12,6 +12,7 @@ class Neutralizer
 
   def neutralize_verb(text)
     case text
+    when "is" then "are"
     when "does" then "do"
     else text
     end
