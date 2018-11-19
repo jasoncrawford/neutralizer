@@ -42,10 +42,10 @@ class Neutralizer
   end
 
   def replacement_for_verb(verb)
-    vtext = verb.text
-    repl = neutralize_verb vtext.content
-    if repl != vtext.content
-      {orig: vtext.content, offset: vtext.begin_offset, repl: repl}
+    text = verb.text
+    repl = neutralize_verb text.content
+    if repl != text.content
+      {orig: text.content, offset: text.begin_offset, repl: repl}
     end
   end
 
