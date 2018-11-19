@@ -63,10 +63,6 @@ class Neutralizer
     return [] unless is_gendered?(token)
     replacements = []
 
-    text = token.text
-    edge = token.dependency_edge
-    pos = token.part_of_speech
-
     replacements << replacement_for_gendered_token(token)
 
     verb = verb_to_replace_for_token token
