@@ -35,8 +35,8 @@ class Neutralizer
     pos = token.part_of_speech
 
     repl = neutralize_pronoun edge, pos
-
     repl.downcase! if text.content == text.content.downcase
+
     # puts "replacing '#{text.content}' (#{edge.label}, #{pos.case}) with '#{repl}' at #{text.begin_offset}"
     {orig: text.content, offset: text.begin_offset, repl: repl}
   end
