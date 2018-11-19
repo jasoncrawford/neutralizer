@@ -66,9 +66,7 @@ class Neutralizer
       # puts "need to replace '#{vtext.content}' (#{vedge.label}, #{vpos.tense}, #{vpos.mood}) for '#{text.content}' -> '#{repl}'?"
       repl = neutralize_verb vtext.content
       replacement = replacement_for_verb(vtext, repl)
-      if replacement
-        replacements << replacement
-      end
+      replacements << replacement if replacement
     end
 
     replacements
