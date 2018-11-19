@@ -99,6 +99,7 @@ class Neutralizer
 
   def neutralize(text)
     replacements = generate_replacements text
+    puts "replacements for '#{text}': #{replacements.inspect}"
     replace_tokens text, replacements
   end
 end

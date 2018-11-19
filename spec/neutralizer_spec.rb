@@ -82,6 +82,11 @@ describe Neutralizer do
       end
       it { is_expected.to eq(expected) }
     end
+
+    context "Is he smart?" do
+      let(:text) { "Is he smart?" }
+      it { is_expected.to be_an(Array) }
+    end
   end
 
   describe "replace tokens" do
