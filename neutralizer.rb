@@ -14,7 +14,7 @@ class Neutralizer
     case text
     when "is" then "are"
     when "does" then "do"
-    else text
+    else text.sub(/s?$/, '')
     end
   end
 

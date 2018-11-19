@@ -51,10 +51,11 @@ describe Neutralizer do
       let(:expected) do
         [
           {orig: "She", offset: 0, repl: "They"},
+          {orig: "thinks", offset: 4, repl: "think"},
           {orig: "he", offset: 11, repl: "they"},
         ]
       end
-      it { is_expected.to include(*expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "He wants her to know that she can join his team" do

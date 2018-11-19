@@ -23,7 +23,7 @@ describe "server" do
     end
 
     it "should neutralize the body" do
-      expect(last_response.body).to eql('They thinks they will')
+      expect(last_response.body).to eql('They think they will')
     end
   end
 end
