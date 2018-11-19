@@ -110,8 +110,10 @@ describe Neutralizer do
   end
 
   describe "neutralize" do
-    let(:text) { "It is" }
-    subject { neutralizer.neutralize text }
-    it { is_expected.to eql("It is") }
+    context "It is" do
+      let(:text) { "It is" }
+      subject { neutralizer.neutralize text }
+      it { is_expected.to eql("It is") }
+    end
   end
 end
