@@ -41,7 +41,8 @@ class Neutralizer
     end
   end
 
-  def replacement_for_verb(vtext)
+  def replacement_for_verb(verb)
+    vtext = verb.text
     repl = neutralize_verb vtext.content
     if repl != vtext.content
       {orig: vtext.content, offset: vtext.begin_offset, repl: repl}
@@ -60,8 +61,7 @@ class Neutralizer
 
     if pos.case == :NOMINATIVE
       verb = tokens[edge.head_token_index]
-      vtext = verb.text
-      replacement = replacement_for_verb(vtext)
+      replacement = replacement_for_verb(verb)
       replacements << replacement if replacement
     end
 
