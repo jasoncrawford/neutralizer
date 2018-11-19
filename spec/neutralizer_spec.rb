@@ -23,7 +23,7 @@ describe Neutralizer do
 
     context "She does" do
       let(:text) { "She does" }
-      it { is_expected.to include(*[{orig: "She", offset: 0, repl: "They"}]) }
+      it { is_expected.to eq([{orig: "She", offset: 0, repl: "They"}, {orig: "does", offset: 4, repl: "do"}]) }
     end
 
     context "Yes she is" do

@@ -11,7 +11,10 @@ class Neutralizer
   end
 
   def neutralize_verb(text)
-    text
+    case text
+    when "does" then "do"
+    else text
+    end
   end
 
   def generate_replacements(text)
