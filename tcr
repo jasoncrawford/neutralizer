@@ -2,4 +2,4 @@
 
 (git diff --name-only | grep Gemfile) && bundle
 git add .
-foreman run rspec `cat .tcr-files` && (git add . && git commit -m tcr) || (git add . && git reset --hard)
+dotenv rspec `cat .tcr-files` && (git add . && git commit -m tcr) || (git add . && git reset --hard)

@@ -25,7 +25,7 @@ class SyntaxAnalyzerFake
   end
 
   def deserialize(string)
-    Google::Cloud::Language::V1::AnalyzeSyntaxResponse.new(JSON.parse string)
+    Google::Cloud::Language::V1::AnalyzeSyntaxResponse.decode_json(string)
   end
 
   def get_fake_response(params)
