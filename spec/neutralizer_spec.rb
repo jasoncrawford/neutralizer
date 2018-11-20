@@ -39,7 +39,7 @@ describe Neutralizer do
 
       context "reflexive" do
         let(:text) { "He saw himself" }
-        it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}]) }
+        it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}, {orig: "himself", offset: 7, repl: "themselves"}]) }
       end
     end
 
