@@ -95,7 +95,7 @@ describe Neutralizer do
       it { is_expected.to match_array(expected) }
     end
 
-    context "Is he smart?" do
+    context "with question" do
       let(:text) { "Is he smart?" }
       let(:expected) do
         [
