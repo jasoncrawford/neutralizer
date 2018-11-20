@@ -114,19 +114,19 @@ describe Neutralizer do
   describe "replace tokens" do
     subject { neutralizer.replace_tokens text, replacements }
 
-    context "It is" do
+    context "with no gendered words" do
       let(:text) { "It is" }
       let(:replacements) { [] }
       it { is_expected.to eq(text) }
     end
 
-    context "He said" do
+    context "with one gendered word" do
       let(:text) { "He said" }
       let(:replacements) { [{orig: "He", offset: 0, repl: "They"}] }
       it { is_expected.to eq("They said") }
     end
 
-    context "She thinks he will" do
+    context "with multiple gendered words" do
       let(:text) { "She thinks he will" }
       let(:replacements) do
         [
