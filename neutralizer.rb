@@ -53,6 +53,7 @@ class Neutralizer
     case text.downcase
     when "is" then "Are"
     when "was" then "Were"
+    when "has" then "Have"
     when "does" then "Do"
     else text.sub(/s?$/, '')
     end
