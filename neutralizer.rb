@@ -15,6 +15,9 @@ class Neutralizer
     edge = token.dependency_edge
     pos = token.part_of_speech
 
+    # special case for reflexive pronouns
+    return "Themselves" if text.content =~ /self$/
+
     case edge.label
     when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
       case pos.case
