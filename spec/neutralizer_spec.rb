@@ -11,7 +11,7 @@ describe Neutralizer do
   describe "generate replacements" do
     subject { neutralizer.generate_replacements text }
 
-    context "It is" do
+    context "with no gendered words" do
       let(:text) { "It is" }
       it { is_expected.to match_array([]) }
     end
