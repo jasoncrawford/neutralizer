@@ -36,6 +36,11 @@ describe Neutralizer do
         let(:text) { "The credit is his" }
         it { is_expected.to match_array([{orig: "his", offset: 14, repl: "theirs"}])}
       end
+
+      context "reflexive" do
+        let(:text) { "He saw himself" }
+        it { is_expected.to be_an(Array) }
+      end
     end
 
     describe "irregular verbs" do
