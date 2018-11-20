@@ -43,17 +43,17 @@ describe Neutralizer do
       end
     end
 
-    context "I told her" do
+    context "with direct object" do
       let(:text) { "I told her" }
       it { is_expected.to match_array([{orig: "her", offset: 7, repl: "them"}])}
     end
 
-    context "In her project" do
+    context "with possessive" do
       let(:text) { "In her project" }
       it { is_expected.to match_array([{orig: "her", offset: 3, repl: "their"}])}
     end
 
-    context "The credit is his" do
+    context "with possessive nominal phrase" do
       let(:text) { "The credit is his" }
       it { is_expected.to match_array([{orig: "his", offset: 14, repl: "theirs"}])}
     end
