@@ -34,11 +34,8 @@ class Neutralizer
   end
 
   def replacement_for_gendered_token(token)
-    text = token.text
-    edge = token.dependency_edge
-    pos = token.part_of_speech
-
     begin
+      text = token.text
       repl = neutralize_pronoun token
       repl.downcase! if text.content == text.content.downcase
       {orig: text.content, offset: text.begin_offset, repl: repl}
