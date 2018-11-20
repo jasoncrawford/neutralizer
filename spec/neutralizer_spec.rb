@@ -60,41 +60,43 @@ describe Neutralizer do
       end
     end
 
-    context "She thinks he will" do
-      let(:text) { "She thinks he will" }
-      let(:expected) do
-        [
-          {orig: "She", offset: 0, repl: "They"},
-          {orig: "thinks", offset: 4, repl: "think"},
-          {orig: "he", offset: 11, repl: "they"},
-        ]
+    describe "more complicated cases" do
+      context "She thinks he will" do
+        let(:text) { "She thinks he will" }
+        let(:expected) do
+          [
+            {orig: "She", offset: 0, repl: "They"},
+            {orig: "thinks", offset: 4, repl: "think"},
+            {orig: "he", offset: 11, repl: "they"},
+          ]
+        end
+        it { is_expected.to match_array(expected) }
       end
-      it { is_expected.to match_array(expected) }
-    end
 
-    context "He wants her to know that she can join his team" do
-      let(:text) { "He wants her to know that she can join his team" }
-      let(:expected) do
-        [
-          {orig: "He", offset: 0, repl: "They"},
-          {orig: "wants", offset: 3, repl: "want"},
-          {orig: "her", offset: 9, repl: "them"},
-          {orig: "she", offset: 26, repl: "they"},
-          {orig: "his", offset: 39, repl: "their"},
-        ]
+      context "He wants her to know that she can join his team" do
+        let(:text) { "He wants her to know that she can join his team" }
+        let(:expected) do
+          [
+            {orig: "He", offset: 0, repl: "They"},
+            {orig: "wants", offset: 3, repl: "want"},
+            {orig: "her", offset: 9, repl: "them"},
+            {orig: "she", offset: 26, repl: "they"},
+            {orig: "his", offset: 39, repl: "their"},
+          ]
+        end
+        it { is_expected.to match_array(expected) }
       end
-      it { is_expected.to match_array(expected) }
-    end
 
-    context "I gave her back her pen" do
-      let(:text) { "I gave her back her pen" }
-      let(:expected) do
-        [
-          {orig: "her", offset: 7, repl: "them"},
-          {orig: "her", offset: 16, repl: "their"},
-        ]
+      context "I gave her back her pen" do
+        let(:text) { "I gave her back her pen" }
+        let(:expected) do
+          [
+            {orig: "her", offset: 7, repl: "them"},
+            {orig: "her", offset: 16, repl: "their"},
+          ]
+        end
+        it { is_expected.to match_array(expected) }
       end
-      it { is_expected.to match_array(expected) }
     end
 
     context "with question" do
