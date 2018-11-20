@@ -21,24 +21,26 @@ describe Neutralizer do
       it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}]) }
     end
 
-    context "She does" do
-      let(:text) { "She does" }
-      it { is_expected.to match_array([{orig: "She", offset: 0, repl: "They"}, {orig: "does", offset: 4, repl: "do"}]) }
-    end
+    describe "irregular verbs" do
+      context "She does" do
+        let(:text) { "She does" }
+        it { is_expected.to match_array([{orig: "She", offset: 0, repl: "They"}, {orig: "does", offset: 4, repl: "do"}]) }
+      end
 
-    context "Yes she is" do
-      let(:text) { "Yes she is" }
-      it { is_expected.to match_array([{orig: "she", offset: 4, repl: "they"}, {orig: "is", offset: 8, repl: "are"}]) }
-    end
+      context "Yes she is" do
+        let(:text) { "Yes she is" }
+        it { is_expected.to match_array([{orig: "she", offset: 4, repl: "they"}, {orig: "is", offset: 8, repl: "are"}]) }
+      end
 
-    context "He was there" do
-      let(:text) { "He was there" }
-      it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}, {orig: "was", offset: 3, repl: "were"}]) }
-    end
+      context "He was there" do
+        let(:text) { "He was there" }
+        it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}, {orig: "was", offset: 3, repl: "were"}]) }
+      end
 
-    context "She has the skills" do
-      let(:text) { "She has the skills" }
-      it { is_expected.to match_array([{orig: "She", offset: 0, repl: "They"}, {orig: "has", offset: 4, repl: "have"}]) }
+      context "She has the skills" do
+        let(:text) { "She has the skills" }
+        it { is_expected.to match_array([{orig: "She", offset: 0, repl: "They"}, {orig: "has", offset: 4, repl: "have"}]) }
+      end
     end
 
     context "I told her" do
