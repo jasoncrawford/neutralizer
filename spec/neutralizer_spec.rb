@@ -104,6 +104,11 @@ describe Neutralizer do
       end
     end
 
+    context "contraction" do
+      let(:text) { "He's the one" }
+      it { is_expected.to be_an(Array) }
+    end
+
     context "question" do
       let(:text) { "Is he smart?" }
       let(:expected) do
