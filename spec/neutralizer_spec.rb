@@ -11,28 +11,28 @@ describe Neutralizer do
   describe "generate replacements" do
     subject { neutralizer.generate_replacements text }
 
-    context "with no gendered words" do
+    context "no gendered words" do
       let(:text) { "It is" }
       it { is_expected.to match_array([]) }
     end
 
     describe "parts of speech" do
-      context "with gendered subject" do
+      context "gendered subject" do
         let(:text) { "He said" }
         it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}]) }
       end
 
-      context "with direct object" do
+      context "direct object" do
         let(:text) { "I told her" }
         it { is_expected.to match_array([{orig: "her", offset: 7, repl: "them"}])}
       end
 
-      context "with possessive" do
+      context "possessive" do
         let(:text) { "In her project" }
         it { is_expected.to match_array([{orig: "her", offset: 3, repl: "their"}])}
       end
 
-      context "with possessive nominal phrase" do
+      context "possessive nominal phrase" do
         let(:text) { "The credit is his" }
         it { is_expected.to match_array([{orig: "his", offset: 14, repl: "theirs"}])}
       end
@@ -99,7 +99,7 @@ describe Neutralizer do
       end
     end
 
-    context "with question" do
+    context "question" do
       let(:text) { "Is he smart?" }
       let(:expected) do
         [
@@ -114,19 +114,19 @@ describe Neutralizer do
   describe "replace tokens" do
     subject { neutralizer.replace_tokens text, replacements }
 
-    context "with no gendered words" do
+    context "no gendered words" do
       let(:text) { "It is" }
       let(:replacements) { [] }
       it { is_expected.to eq(text) }
     end
 
-    context "with one gendered word" do
+    context "one gendered word" do
       let(:text) { "He said" }
       let(:replacements) { [{orig: "He", offset: 0, repl: "They"}] }
       it { is_expected.to eq("They said") }
     end
 
-    context "with multiple gendered words" do
+    context "multiple gendered words" do
       let(:text) { "She thinks he will" }
       let(:replacements) do
         [
@@ -142,17 +142,17 @@ describe Neutralizer do
   describe "neutralize" do
     subject { neutralizer.neutralize text }
 
-    context "with no gendered words" do
+    context "no gendered words" do
       let(:text) { "It is" }
       it { is_expected.to eql("It is") }
     end
 
-    context "with one gendered word" do
+    context "one gendered word" do
       let(:text) { "He said" }
       it { is_expected.to eq("They said") }
     end
 
-    context "with multiple gendered words" do
+    context "multiple gendered words" do
       let(:text) { "I gave her back her pen" }
       it { is_expected.to eq("I gave them back their pen") }
     end
