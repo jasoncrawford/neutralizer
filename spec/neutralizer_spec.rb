@@ -73,7 +73,7 @@ describe Neutralizer do
         it { is_expected.to match_array(expected) }
       end
 
-      context "He wants her to know that she can join his team" do
+      context "several gendered words combined" do
         let(:text) { "He wants her to know that she can join his team" }
         let(:expected) do
           [
