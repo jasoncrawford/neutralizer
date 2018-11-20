@@ -142,17 +142,17 @@ describe Neutralizer do
   describe "neutralize" do
     subject { neutralizer.neutralize text }
 
-    context "It is" do
+    context "with no gendered words" do
       let(:text) { "It is" }
       it { is_expected.to eql("It is") }
     end
 
-    context "He said" do
+    context "with one gendered word" do
       let(:text) { "He said" }
       it { is_expected.to eq("They said") }
     end
 
-    context "I gave her back her pen" do
+    context "with multiple gendered words" do
       let(:text) { "I gave her back her pen" }
       it { is_expected.to eq("I gave them back their pen") }
     end
