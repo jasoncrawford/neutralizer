@@ -61,7 +61,7 @@ describe Neutralizer do
     end
 
     describe "more complicated cases" do
-      context "She thinks he will" do
+      context "two subjects" do
         let(:text) { "She thinks he will" }
         let(:expected) do
           [
