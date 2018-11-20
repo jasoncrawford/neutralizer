@@ -52,6 +52,7 @@ class Neutralizer
   def neutralize_verb(text)
     case text.downcase
     when "is" then "Are"
+    when "was" then "Were"
     when "does" then "Do"
     else text.sub(/s?$/, '')
     end
