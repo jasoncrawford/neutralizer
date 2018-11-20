@@ -10,7 +10,11 @@ class Neutralizer
     return gender == :MASCULINE || gender == :FEMININE
   end
 
-  def neutralize_pronoun(edge, pos)
+  def neutralize_pronoun(token)
+    text = token.text
+    edge = token.dependency_edge
+    pos = token.part_of_speech
+
     case edge.label
     when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
       case pos.case
@@ -35,7 +39,7 @@ class Neutralizer
     pos = token.part_of_speech
 
     begin
-      repl = neutralize_pronoun edge, pos
+      repl = neutralize_pronoun token
       repl.downcase! if text.content == text.content.downcase
       {orig: text.content, offset: text.begin_offset, repl: repl}
     rescue => error
