@@ -16,7 +16,7 @@ describe Neutralizer do
       it { is_expected.to match_array([]) }
     end
 
-    context "He said" do
+    context "with gendered subject" do
       let(:text) { "He said" }
       it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}]) }
     end
