@@ -106,7 +106,7 @@ describe Neutralizer do
 
     context "contraction" do
       let(:text) { "He's the one" }
-      it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}, {orig: "'s", offset: 2, repl: "'re"}]) }
+      it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}, {orig: "'s", offset: 2, repl: "'re"}]) }
     end
 
     context "question" do
