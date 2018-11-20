@@ -87,7 +87,7 @@ describe Neutralizer do
         it { is_expected.to match_array(expected) }
       end
 
-      context "I gave her back her pen" do
+      context "two forms of 'her'" do
         let(:text) { "I gave her back her pen" }
         let(:expected) do
           [
