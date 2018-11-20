@@ -16,24 +16,26 @@ describe Neutralizer do
       it { is_expected.to match_array([]) }
     end
 
-    context "with gendered subject" do
-      let(:text) { "He said" }
-      it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}]) }
-    end
+    describe "parts of speech" do
+      context "with gendered subject" do
+        let(:text) { "He said" }
+        it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}]) }
+      end
 
-    context "with direct object" do
-      let(:text) { "I told her" }
-      it { is_expected.to match_array([{orig: "her", offset: 7, repl: "them"}])}
-    end
+      context "with direct object" do
+        let(:text) { "I told her" }
+        it { is_expected.to match_array([{orig: "her", offset: 7, repl: "them"}])}
+      end
 
-    context "with possessive" do
-      let(:text) { "In her project" }
-      it { is_expected.to match_array([{orig: "her", offset: 3, repl: "their"}])}
-    end
+      context "with possessive" do
+        let(:text) { "In her project" }
+        it { is_expected.to match_array([{orig: "her", offset: 3, repl: "their"}])}
+      end
 
-    context "with possessive nominal phrase" do
-      let(:text) { "The credit is his" }
-      it { is_expected.to match_array([{orig: "his", offset: 14, repl: "theirs"}])}
+      context "with possessive nominal phrase" do
+        let(:text) { "The credit is his" }
+        it { is_expected.to match_array([{orig: "his", offset: 14, repl: "theirs"}])}
+      end
     end
 
     describe "irregular verbs" do
