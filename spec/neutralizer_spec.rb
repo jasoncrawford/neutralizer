@@ -106,7 +106,7 @@ describe Neutralizer do
 
     context "contraction" do
       let(:text) { "He's the one" }
-      it { is_expected.to be_an(Array) }
+      it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}]) }
     end
 
     context "question" do
