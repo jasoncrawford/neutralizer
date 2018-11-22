@@ -110,7 +110,9 @@ describe Neutralizer do
       context "three verbs" do
         let(:text) { "He enjoys the job, feels rewarded, and wants to continue" }
         let(:expected) do
-          []
+          [
+            {orig: "He", offset: 0, repl: "They"},
+          ]
         end
         it { is_expected.to include(*expected) }
       end
