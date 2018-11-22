@@ -137,6 +137,7 @@ describe Neutralizer do
       end
 
       context "wasn't" do
+        let(:text) { "He wasn't wrong" }
       end
     end
 
