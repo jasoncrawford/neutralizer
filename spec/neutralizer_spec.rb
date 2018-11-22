@@ -138,7 +138,7 @@ describe Neutralizer do
 
       context "wasn't" do
         let(:text) { "He wasn't wrong" }
-        it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}]) }
+        it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}, {orig: "was", offset: 3, repl: "were"}]) }
       end
     end
 
