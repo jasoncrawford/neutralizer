@@ -50,6 +50,7 @@ class Neutralizer
 
   def verbs_to_replace_for_subject(token)
     return [] unless token.part_of_speech.case == :NOMINATIVE
+
     index = token.dependency_edge.head_token_index
     verb = @tokens[index]
     more_verbs = @tokens.select {|t| has_edge t, :CONJ, index}
