@@ -44,6 +44,8 @@ describe Neutralizer do
     end
 
     describe "tenses" do
+      context "present continuous" do
+      end
     end
 
     describe "irregular verbs" do
