@@ -50,6 +50,7 @@ describe Neutralizer do
       end
 
       context "present continuous with adverb" do
+        let(:text) { "He is still working" }
       end
 
       context "present perfect" do
