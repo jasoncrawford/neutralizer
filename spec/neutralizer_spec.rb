@@ -45,6 +45,7 @@ describe Neutralizer do
 
     describe "tenses" do
       context "present continuous" do
+        let(:text) { "He is working" }
       end
     end
 
