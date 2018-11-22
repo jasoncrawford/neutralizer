@@ -51,6 +51,7 @@ describe Neutralizer do
 
       context "present continuous with adverb" do
         let(:text) { "He is still working" }
+        it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}, {orig: "is", offset: 3, repl: "are"}]) }
       end
 
       context "present perfect" do
