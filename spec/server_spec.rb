@@ -22,6 +22,10 @@ describe "server" do
       expect(last_response).to be_ok
     end
 
+    it "should allow CORS?" do
+      expect(last_response.headers['Access-Control-Allow-Origin']).to be_nil
+    end
+
     it "should neutralize the body" do
       expect(last_response.body).to eql('They think they will')
     end
