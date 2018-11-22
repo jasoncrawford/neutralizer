@@ -125,6 +125,9 @@ describe Neutralizer do
         let(:text) { "She isn't ready" }
         it { is_expected.to match_array([{orig: "She", offset: 0, repl: "They"}, {orig: "is", offset: 4, repl: "are"}]) }
       end
+
+      context "'ll" do
+      end
     end
 
     describe "special cases" do
