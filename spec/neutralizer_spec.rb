@@ -104,7 +104,7 @@ describe Neutralizer do
             {orig: "wants", offset: 23, repl: "want"},
           ]
         end
-        it { is_expected.to include(*expected) }
+        it { is_expected.to match_array(expected) }
       end
 
       context "several gendered words combined" do
