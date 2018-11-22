@@ -111,13 +111,7 @@ describe Neutralizer do
 
       context "two forms of 'her'" do
         let(:text) { "I gave her back her pen" }
-        let(:expected) do
-          [
-            {orig: "her", offset: 7, repl: "them"},
-            {orig: "her", offset: 16, repl: "their"},
-          ]
-        end
-        it { is_expected.to match_array(expected) }
+        it { is_expected.to match_array([{orig: "her", offset: 7, repl: "them"}, {orig: "her", offset: 16, repl: "their"}]) }
       end
     end
 
