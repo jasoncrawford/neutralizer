@@ -51,7 +51,7 @@ describe Neutralizer do
 
       context "present perfect" do
         let(:text) { "She has done it" }
-        it { is_expected.to include(*[{orig: "She", offset: 0, repl: "They"}]) }
+        it { is_expected.to match_array([{orig: "She", offset: 0, repl: "They"}, {orig: "has", offset: 4, repl: "have"}]) }
       end
     end
 
