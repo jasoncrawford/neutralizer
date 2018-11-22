@@ -48,6 +48,9 @@ describe Neutralizer do
         let(:text) { "He is working" }
         it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}]) }
       end
+
+      context "present perfect" do
+      end
     end
 
     describe "irregular verbs" do
