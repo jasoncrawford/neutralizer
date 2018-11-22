@@ -100,7 +100,7 @@ describe Neutralizer do
         let(:expected) do
           []
         end
-        it { is_expected.to include(*[]) }
+        it { is_expected.to include(*expected) }
       end
 
       context "several gendered words combined" do
