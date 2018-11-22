@@ -50,15 +50,10 @@ class Neutralizer
     more_verbs = @tokens.select {|t| t.dependency_edge.label == :CONJ && t.dependency_edge.head_token_index == index}
     all_verbs = [verb] + more_verbs
 
-    aux = @tokens.find {|t| t.dependency_edge.label == :AUX && t.dependency_edge.head_token_index == index}
-    verbs = [aux || verb]
-
     all_verbs.map do |verb|
       aux = @tokens.find {|t| t.dependency_edge.label == :AUX && t.dependency_edge.head_token_index == index}
       aux || verb
     end
-
-    # verbs
   end
 
   def neutralize_verb(text)
