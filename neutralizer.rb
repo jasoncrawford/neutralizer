@@ -5,6 +5,10 @@ class Neutralizer
     @analyzer ||= SyntaxAnalyzer.new
   end
 
+  def has_edge(t, label, index)
+    t.dependency_edge.label == label && t.dependency_edge.head_token_index == index
+  end
+
   def is_gendered?(token)
     gender = token.part_of_speech.gender
     return gender == :MASCULINE || gender == :FEMININE
