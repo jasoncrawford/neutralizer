@@ -122,6 +122,7 @@ describe Neutralizer do
       end
 
       context "isn't" do
+        let(:text) { "She isn't ready" }
       end
     end
 
