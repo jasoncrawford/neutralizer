@@ -5,8 +5,8 @@ class Neutralizer
     @analyzer ||= SyntaxAnalyzer.new
   end
 
-  def has_edge(t, label, index)
-    t.dependency_edge.label == label && t.dependency_edge.head_token_index == index
+  def has_edge(token, label, index)
+    token.dependency_edge.label == label && token.dependency_edge.head_token_index == index
   end
 
   def is_gendered?(token)
