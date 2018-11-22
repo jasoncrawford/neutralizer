@@ -44,5 +44,8 @@ describe SyntaxAnalyzer do
         end
       end
     end
+
+    context "with special characters" do
+    end
   end
 end
