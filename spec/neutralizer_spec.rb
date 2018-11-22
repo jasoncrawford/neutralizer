@@ -115,6 +115,9 @@ describe Neutralizer do
       end
     end
 
+    describe "contractions" do
+    end
+
     describe "special cases" do
       context "contraction" do
         let(:text) { "He's the one" }
