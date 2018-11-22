@@ -48,7 +48,7 @@ class Neutralizer
     index = token.dependency_edge.head_token_index
     verb = @tokens[index]
     aux = @tokens.find {|t| t.dependency_edge.label == :AUX && t.dependency_edge.head_token_index == index}
-    verb
+    aux || verb
   end
 
   def neutralize_verb(text)
