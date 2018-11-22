@@ -7,7 +7,7 @@ class Neutralizer
 
   def has_edge(token, label, index)
     edge = token.dependency_edge
-    token.dependency_edge.label == label && token.dependency_edge.head_token_index == index
+    edge.label == label && edge.head_token_index == index
   end
 
   def is_gendered?(token)
