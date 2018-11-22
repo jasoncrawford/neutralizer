@@ -55,7 +55,7 @@ class Neutralizer
     all_verbs = [verb] + more_verbs
 
     all_verbs.map do |verb|
-      aux = @tokens.find {|t| t.dependency_edge.label == :AUX && t.dependency_edge.head_token_index == index}
+      aux = @tokens.find {|t| has_edge t, :AUX, index}
       aux || verb
     end
   end
