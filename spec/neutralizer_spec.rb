@@ -96,6 +96,7 @@ describe Neutralizer do
       end
 
       context "two verbs" do
+        let(:text) { "She likes the work and wants to do more" }
       end
 
       context "several gendered words combined" do
