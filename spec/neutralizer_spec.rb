@@ -46,6 +46,7 @@ describe Neutralizer do
     describe "tenses" do
       context "present continuous" do
         let(:text) { "He is working" }
+        it { is_expected.to be_an(Array) }
       end
     end
 
