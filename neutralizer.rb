@@ -44,11 +44,11 @@ class Neutralizer
   end
 
   def verbs_to_replace_for_subject(token)
-    return nil unless token.part_of_speech.case == :NOMINATIVE
+    return [] unless token.part_of_speech.case == :NOMINATIVE
     index = token.dependency_edge.head_token_index
     verb = @tokens[index]
     aux = @tokens.find {|t| t.dependency_edge.label == :AUX && t.dependency_edge.head_token_index == index}
-    aux || verb
+    [aux || verb]
   end
 
   def neutralize_verb(text)
@@ -77,7 +77,7 @@ class Neutralizer
 
     replacements << replacement_for_gendered_token(token)
 
-    verb = verbs_to_replace_for_subject token
+    verb = verbs_to_replace_for_subject(token).first
     replacement = replacement_for_verb verb if verb
     replacements << replacement if replacement
 
