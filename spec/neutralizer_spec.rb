@@ -128,7 +128,7 @@ describe Neutralizer do
 
       context "'ll" do
         let(:text) { "He'll be there" }
-        it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}]) }
+        it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}]) }
       end
     end
 
