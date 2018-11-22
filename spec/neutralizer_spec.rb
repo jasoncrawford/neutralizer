@@ -127,6 +127,7 @@ describe Neutralizer do
       end
 
       context "'ll" do
+        let(:text) { "He'll be there" }
       end
     end
 
