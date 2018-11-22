@@ -78,9 +78,9 @@ class Neutralizer
 
     replacements << replacement_for_gendered_token(token)
 
-    replacements += verbs_to_replace_for_subject(token).map {|v| replacement_for_verb v}.compact
+    replacements += verbs_to_replace_for_subject(token).map {|v| replacement_for_verb v}
 
-    replacements
+    replacements.compact
   end
 
   def generate_replacements(text)
