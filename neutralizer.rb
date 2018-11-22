@@ -58,7 +58,7 @@ class Neutralizer
       aux || verb
     end
 
-    verbs
+    # verbs
   end
 
   def neutralize_verb(text)
