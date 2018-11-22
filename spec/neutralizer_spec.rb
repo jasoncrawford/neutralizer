@@ -120,6 +120,9 @@ describe Neutralizer do
         let(:text) { "He's the one" }
         it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}, {orig: "'s", offset: 2, repl: "'re"}]) }
       end
+
+      context "isn't" do
+      end
     end
 
     describe "special cases" do
