@@ -49,6 +49,9 @@ class Neutralizer
     verb = @tokens[index]
     aux = @tokens.find {|t| t.dependency_edge.label == :AUX && t.dependency_edge.head_token_index == index}
     verbs = [aux || verb]
+
+    more_verbs = @tokens.select {|t| t.dependency_edge.label == :CONJ && t.dependency_edge.head_token_index == index}
+
     verbs
   end
 
