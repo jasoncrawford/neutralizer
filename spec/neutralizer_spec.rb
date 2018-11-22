@@ -123,13 +123,7 @@ describe Neutralizer do
 
       context "question" do
         let(:text) { "Is he smart?" }
-        let(:expected) do
-          [
-            {orig: "Is", offset: 0, repl: "Are"},
-            {orig: "he", offset: 3, repl: "they"},
-          ]
-        end
-        it { is_expected.to match_array(expected) }
+        it { is_expected.to match_array([{orig: "Is", offset: 0, repl: "Are"}, {orig: "he", offset: 3, repl: "they"}]) }
       end
     end
   end
