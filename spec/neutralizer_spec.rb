@@ -109,6 +109,9 @@ describe Neutralizer do
 
       context "three verbs" do
         let(:text) { "He enjoys the job, feels rewarded, and wants to continue" }
+        let(:expected) do
+          []
+        end
       end
 
       context "several gendered words combined" do
