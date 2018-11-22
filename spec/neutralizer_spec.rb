@@ -123,7 +123,7 @@ describe Neutralizer do
 
       context "isn't" do
         let(:text) { "She isn't ready" }
-        it { is_expected.to be_an(Array) }
+        it { is_expected.to include(*[{orig: "She", offset: 0, repl: "They"}]) }
       end
     end
 
