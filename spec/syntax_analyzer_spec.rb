@@ -17,28 +17,31 @@ describe SyntaxAnalyzer do
   end
 
   describe "analyze" do
-    let(:text) { "This is a test" }
     let(:response) { analyzer.analyze text }
     subject { response }
-    it { is_expected.to_not be_nil }
 
-    it "has four tokens" do
-      expect(subject.tokens.length).to eq(4)
-    end
+    context "with normal input" do
+      let(:text) { "This is a test" }
+      it { is_expected.to_not be_nil }
 
-    describe "each token" do
-      subject { response.tokens[0] }
-
-      it "has text content" do
-        expect(subject.text.content).to eq("This")
+      it "has four tokens" do
+        expect(subject.tokens.length).to eq(4)
       end
 
-      it "has text begin offset" do
-        expect(subject.text.begin_offset).to eq(0)
-      end
+      describe "each token" do
+        subject { response.tokens[0] }
 
-      it "has dependency edge label" do
-        expect(subject.dependency_edge.label).to eq(:NSUBJ)
+        it "has text content" do
+          expect(subject.text.content).to eq("This")
+        end
+
+        it "has text begin offset" do
+          expect(subject.text.begin_offset).to eq(0)
+        end
+
+        it "has dependency edge label" do
+          expect(subject.dependency_edge.label).to eq(:NSUBJ)
+        end
       end
     end
   end
