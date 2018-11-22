@@ -99,7 +99,8 @@ describe Neutralizer do
         let(:text) { "She likes the work and wants to do more" }
         let(:expected) do
           [
-            {orig: "She", offset: 0, repl: "They"}
+            {orig: "She", offset: 0, repl: "They"},
+            {orig: "likes", offset: 4, repl: "like"},
           ]
         end
         it { is_expected.to include(*expected) }
