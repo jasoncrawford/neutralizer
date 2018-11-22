@@ -116,14 +116,13 @@ describe Neutralizer do
     end
 
     describe "contractions" do
-    end
-
-    describe "special cases" do
-      context "contraction" do
+      context "'s" do
         let(:text) { "He's the one" }
         it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}, {orig: "'s", offset: 2, repl: "'re"}]) }
       end
+    end
 
+    describe "special cases" do
       context "question" do
         let(:text) { "Is he smart?" }
         it { is_expected.to match_array([{orig: "Is", offset: 0, repl: "Are"}, {orig: "he", offset: 3, repl: "they"}]) }
