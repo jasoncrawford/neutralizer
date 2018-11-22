@@ -101,6 +101,7 @@ describe Neutralizer do
           [
             {orig: "She", offset: 0, repl: "They"},
             {orig: "likes", offset: 4, repl: "like"},
+            {orig: "wants", offset: 23, repl: "want"},
           ]
         end
         it { is_expected.to include(*expected) }
