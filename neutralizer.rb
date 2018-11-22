@@ -47,7 +47,8 @@ class Neutralizer
     return nil unless token.part_of_speech.case == :NOMINATIVE
     index = token.dependency_edge.head_token_index
     verb = @tokens[index]
-    # aux = @tokens.select {|t| t.dependency_edge.label == :AUX && t.dependency_edge.head_token_index == }
+    aux = @tokens.select {|t| t.dependency_edge.label == :AUX && t.dependency_edge.head_token_index == index}
+    verb
   end
 
   def neutralize_verb(text)
