@@ -139,7 +139,7 @@ describe Neutralizer do
         it { is_expected.to match_array([{orig: "her", offset: 7, repl: "them"}, {orig: "her", offset: 16, repl: "their"}]) }
       end
 
-      context "bug" do
+      context "genitive case with nsubj" do
         let(:text) { "It was more me teaching her than her showing her skills" }
       end
     end
