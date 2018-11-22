@@ -98,6 +98,7 @@ describe Neutralizer do
       context "two verbs" do
         let(:text) { "She likes the work and wants to do more" }
         let(:expected) do
+          []
         end
         it { is_expected.to include(*[]) }
       end
