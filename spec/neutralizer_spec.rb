@@ -103,7 +103,7 @@ describe Neutralizer do
             {orig: "likes", offset: 4, repl: "like"},
           ]
         end
-        it { is_expected.to include(*expected) }
+        it { is_expected.to match_array(expected) }
       end
 
       context "several gendered words combined" do
