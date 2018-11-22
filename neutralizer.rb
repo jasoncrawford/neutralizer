@@ -4,6 +4,8 @@ require_relative 'syntax_analyzer'
 # https://cloud.google.com/natural-language/docs/morphology
 
 class Neutralizer
+  class Error; end
+
   def analyzer
     @analyzer ||= SyntaxAnalyzer.new
   end
@@ -31,7 +33,7 @@ class Neutralizer
       case pos.case
       when :NOMINATIVE then "They"
       when :ACCUSATIVE, :GENITIVE then "Them"
-      else raise "unexpected case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+      else raise Neutralizer::Error.new("unexpected case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}")
       end
     when :POBJ, :DOBJ, :IOBJ, :GOBJ
       "Them"
@@ -40,7 +42,7 @@ class Neutralizer
     when :ATTR
       "Theirs"
     else
-      raise "unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
+      raise Neutralizer::Error.new("unexpected label #{edge.label} for token '#{text.content}' at #{text.begin_offset}")
     end
   end
 
