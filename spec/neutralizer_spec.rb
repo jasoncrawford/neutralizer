@@ -50,6 +50,7 @@ describe Neutralizer do
       end
 
       context "present perfect" do
+        let(:text) { "She has done it" }
       end
     end
 
