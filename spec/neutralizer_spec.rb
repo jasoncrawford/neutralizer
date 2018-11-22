@@ -51,6 +51,7 @@ describe Neutralizer do
 
       context "present perfect" do
         let(:text) { "She has done it" }
+        it { is_expected.to be_an(Array) }
       end
     end
 
