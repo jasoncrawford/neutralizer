@@ -44,9 +44,8 @@ class Neutralizer
   end
 
   def verb_to_replace_for_token(token)
-    if token.part_of_speech.case == :NOMINATIVE
-      @tokens[token.dependency_edge.head_token_index]
-    end
+    return nil unless token.part_of_speech.case == :NOMINATIVE
+    @tokens[token.dependency_edge.head_token_index]
   end
 
   def neutralize_verb(text)
