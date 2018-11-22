@@ -1,5 +1,8 @@
 require_relative 'syntax_analyzer'
 
+# General reference on syntax/grammar stuff here:
+# https://cloud.google.com/natural-language/docs/morphology
+
 class Neutralizer
   def analyzer
     @analyzer ||= SyntaxAnalyzer.new
