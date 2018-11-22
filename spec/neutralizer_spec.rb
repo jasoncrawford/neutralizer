@@ -43,6 +43,9 @@ describe Neutralizer do
       end
     end
 
+    describe "tenses" do
+    end
+
     describe "irregular verbs" do
       context "does" do
         let(:text) { "She does" }
