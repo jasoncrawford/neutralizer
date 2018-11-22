@@ -4,7 +4,7 @@ require_relative 'syntax_analyzer'
 # https://cloud.google.com/natural-language/docs/morphology
 
 class Neutralizer
-  class Error; end
+  class Error < StandardError; end
 
   def analyzer
     @analyzer ||= SyntaxAnalyzer.new
