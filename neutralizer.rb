@@ -51,7 +51,7 @@ class Neutralizer
     return [] unless token.part_of_speech.case == :NOMINATIVE
     index = token.dependency_edge.head_token_index
     verb = @tokens[index]
-    more_verbs = @tokens.select {|t| t.dependency_edge.label == :CONJ && t.dependency_edge.head_token_index == index}
+    more_verbs = @tokens.select {|t| has_edge t, :CONJ, index}
     all_verbs = [verb] + more_verbs
 
     all_verbs.map do |verb|
