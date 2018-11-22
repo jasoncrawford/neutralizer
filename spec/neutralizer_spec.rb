@@ -46,7 +46,7 @@ describe Neutralizer do
     describe "tenses" do
       context "present continuous" do
         let(:text) { "He is working" }
-        it { is_expected.to include(*[{orig: "He", offset: 0, repl: "They"}]) }
+        it { is_expected.to match_array([{orig: "He", offset: 0, repl: "They"}, {orig: "is", offset: 3, repl: "are"}]) }
       end
 
       context "present perfect" do
