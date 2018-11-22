@@ -132,6 +132,7 @@ describe Neutralizer do
       end
 
       context "won't" do
+        let(:text) { "She won't do it" }
       end
     end
 
