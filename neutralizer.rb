@@ -30,7 +30,7 @@ class Neutralizer
     when :NSUBJ, :CSUBJ, :NSUBJPASS, :CSUBJPASS, :NOMCSUBJ, :NOMCSUBJPASS
       case pos.case
       when :NOMINATIVE then "They"
-      when :ACCUSATIVE then "Them"
+      when :ACCUSATIVE, :GENITIVE then "Them"
       else raise "unexpected case #{pos.case} with label #{edge.label} for token '#{text.content}' at #{text.begin_offset}"
       end
     when :POBJ, :DOBJ, :IOBJ, :GOBJ
