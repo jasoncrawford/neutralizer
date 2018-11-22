@@ -141,7 +141,7 @@ describe Neutralizer do
 
       context "genitive case with nsubj" do
         let(:text) { "It was more me teaching her than her showing her skills" }
-        it { expect{subject}.to raise_error }
+        it { expect{subject}.to raise_error(/GENITIVE/) }
       end
     end
 
