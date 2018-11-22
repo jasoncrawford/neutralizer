@@ -1,0 +1,4 @@
+#!/bin/sh
+
+text=$(cat)
+curl localhost:4567/neutralize -d "$text"; echo
