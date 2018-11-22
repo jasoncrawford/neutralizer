@@ -138,6 +138,10 @@ describe Neutralizer do
         let(:text) { "I gave her back her pen" }
         it { is_expected.to match_array([{orig: "her", offset: 7, repl: "them"}, {orig: "her", offset: 16, repl: "their"}]) }
       end
+
+      context "bug" do
+        let(:text) { "It was more me teaching her than her showing her skills" }
+      end
     end
 
     describe "contractions" do
