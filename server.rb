@@ -6,6 +6,7 @@ get '/' do
 end
 
 post '/neutralize' do
+  headers 'Access-Control-Allow-Origin' => '*'
   neutralizer = Neutralizer.new
   text = request.body.read
   neutralizer.neutralize text
