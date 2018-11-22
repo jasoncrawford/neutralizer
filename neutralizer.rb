@@ -63,6 +63,7 @@ class Neutralizer
   end
 
   def replacement_for_verb(token)
+    return nil if !token
     text = token.text
     repl = neutralize_verb text.content
     repl.downcase! if text.content == text.content.downcase
