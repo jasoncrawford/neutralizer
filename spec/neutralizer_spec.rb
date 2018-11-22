@@ -114,6 +114,7 @@ describe Neutralizer do
             {orig: "He", offset: 0, repl: "They"},
             {orig: "enjoys", offset: 3, repl: "enjoy"},
             {orig: "feels", offset: 19, repl: "feel"},
+            {orig: "wants", offset: 39, repl: "want"},
           ]
         end
         it { is_expected.to include(*expected) }
