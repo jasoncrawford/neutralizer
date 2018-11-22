@@ -78,7 +78,8 @@ class Neutralizer
 
     replacements << replacement_for_gendered_token(token)
 
-    replacements += verbs_to_replace_for_subject(token).map {|v| replacement_for_verb v}
+    verbs = verbs_to_replace_for_subject token
+    replacements += verbs.map {|v| replacement_for_verb v}
 
     replacements.compact
   end
