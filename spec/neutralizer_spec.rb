@@ -97,6 +97,7 @@ describe Neutralizer do
 
       context "two verbs" do
         let(:text) { "She likes the work and wants to do more" }
+        it { is_expected.to be_an(Array) }
       end
 
       context "several gendered words combined" do
