@@ -142,7 +142,9 @@ describe Neutralizer do
       context "genitive case with nsubj" do
         let(:text) { "It was more me teaching her than her showing her skills" }
         let(:expected) do
-          []
+          [
+            {orig: "her", offset: 24, repl: "them"},
+          ]
         end
         it { is_expected.to include(*expected) }
       end
