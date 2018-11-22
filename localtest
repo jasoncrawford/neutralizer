@@ -1,4 +1,5 @@
 #!/bin/sh
 
-text=$(cat)
-curl localhost:4567/neutralize -d "$text"; echo
+while read line; do
+  curl localhost:4567/neutralize -d "$line"; echo
+done
