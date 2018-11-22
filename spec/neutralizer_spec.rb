@@ -148,7 +148,7 @@ describe Neutralizer do
             {orig: "her", offset: 45, repl: "their"},
           ]
         end
-        it { is_expected.to include(*expected) }
+        it { is_expected.to match_array(expected) }
       end
     end
 
