@@ -138,7 +138,7 @@ describe Neutralizer do
 
       context "wasn't" do
         let(:text) { "He wasn't wrong" }
-        it { is_expected.to be_an(Array) }
+        it { is_expected.to include(*[]) }
       end
     end
 
