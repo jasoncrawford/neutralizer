@@ -112,6 +112,7 @@ describe Neutralizer do
         let(:expected) do
           [
             {orig: "He", offset: 0, repl: "They"},
+            {orig: "enjoys", offset: 3, repl: "enjoy"},
           ]
         end
         it { is_expected.to include(*expected) }
