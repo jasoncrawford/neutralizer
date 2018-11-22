@@ -145,6 +145,7 @@ describe Neutralizer do
           [
             {orig: "her", offset: 24, repl: "them"},
             {orig: "her", offset: 33, repl: "them"},
+            {orig: "her", offset: 45, repl: "their"},
           ]
         end
         it { is_expected.to include(*expected) }
