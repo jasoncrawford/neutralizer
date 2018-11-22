@@ -133,6 +133,7 @@ describe Neutralizer do
 
       context "won't" do
         let(:text) { "She won't do it" }
+        it { is_expected.to be_an(Array) }
       end
     end
 
