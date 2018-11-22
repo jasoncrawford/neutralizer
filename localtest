@@ -1,5 +1,5 @@
 #!/bin/sh
 
-while read line; do
+while read -e line; do
   curl localhost:4567/neutralize -d "$line"; echo
 done
