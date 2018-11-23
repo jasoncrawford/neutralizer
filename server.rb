@@ -1,6 +1,8 @@
 require 'sinatra'
 require_relative 'neutralizer'
 
+set :neutralizer, Neutralizer.new
+
 get '/' do
   "hello, world!"
 end
