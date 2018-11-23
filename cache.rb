@@ -7,6 +7,9 @@ class Cache
     @client.flushdb
   end
 
+  def save(text, response)
+  end
+
   def with_cache(text)
     yield
   end
