@@ -5,6 +5,6 @@ describe Cache do
 
   context "cache miss" do
     subject { cache.with_cache('foo') { 'bar' } }
-    it { is_expected.to be_nil }
+    it { is_expected.to eq('bar') }
   end
 end

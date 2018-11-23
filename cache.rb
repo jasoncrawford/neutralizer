@@ -8,5 +8,6 @@ class Cache
   end
 
   def with_cache(text)
+    yield
   end
 end
