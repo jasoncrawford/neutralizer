@@ -14,10 +14,6 @@ class Neutralizer
     instance.neutralize text
   end
 
-  def initialize
-    puts "Neutralizer#initialize"
-  end
-
   def analyzer
     @analyzer ||= SyntaxAnalyzer.new
   end
