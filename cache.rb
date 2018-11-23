@@ -23,6 +23,8 @@ class Cache
     key = key_for_text text
     response = client.get key
     return response unless response.nil?
-    yield
+
+    response = yield
+    response
   end
 end
