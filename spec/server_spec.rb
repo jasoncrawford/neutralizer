@@ -26,6 +26,10 @@ describe "server" do
       expect(last_response.headers['Access-Control-Allow-Origin']).to eq('*')
     end
 
+    it "should not allow cache?" do
+      expect(last_response.headers['Cache-Control']).to be_nil
+    end
+
     it "should neutralize the body" do
       expect(last_response.body).to eql('They think they will')
     end
