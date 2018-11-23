@@ -40,13 +40,13 @@ class SyntaxAnalyzerFake
     File.write filepath, serialize(response)
   end
 
-  def with_fake_response(params, &block)
+  def with_fake_response(params)
     fake_response = get_fake_response params
     return fake_response if fake_response
 
     raise "unexpected request #{params.inspect}" unless new_requests_allowed?
 
-    response = block.call
+    response = yield
 
     record_fake_response params, response
     response
