@@ -27,7 +27,7 @@ describe "server" do
     end
 
     it "should not allow cache?" do
-      expect(last_response.headers['Cache-Control']).to be_nil
+      expect(last_response.headers['Cache-Control']).to eq('public, max-age=300')
     end
 
     it "should neutralize the body" do
