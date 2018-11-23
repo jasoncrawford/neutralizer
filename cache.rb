@@ -20,6 +20,7 @@ class Cache
   end
 
   def with_cache(text)
+    key = key_for_text text
     yield
   end
 end
