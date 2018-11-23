@@ -10,6 +10,7 @@ class Cache
   end
 
   def key_for_text(text)
+    Digest::MD5.hexdigest text
   end
 
   def save(text, response)
