@@ -10,7 +10,9 @@ describe Cache do
 
   context "cache hit?" do
     before(:all) { @counter = 0 }
-    subject { cache.with_cache('foo') { 'bar' } }
+
+    subject { cache.with_cache('foo') { @counter += 1; 'bar' } }
+
     it { is_expected.to eq('bar') }
     it "should not increment the counter" do
       expect(@counter).to eq(0)
