@@ -1,5 +1,6 @@
 require 'sinatra'
 require_relative 'neutralizer'
+require_relative 'cache'
 
 set :neutralizer, Neutralizer.new
 
