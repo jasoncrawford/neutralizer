@@ -15,6 +15,7 @@ class Cache
   end
 
   def save(text, response)
+    key = key_for_text text
   end
 
   def with_cache(text)
