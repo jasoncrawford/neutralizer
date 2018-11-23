@@ -7,7 +7,7 @@ end
 
 post '/neutralize' do
   headers 'Access-Control-Allow-Origin' => '*'
-  neutralizer = Neutralizer.new
+  @neutralizer ||= Neutralizer.new
   text = request.body.read.force_encoding("UTF-8")
-  neutralizer.neutralize text
+  @neutralizer.neutralize text
 end
