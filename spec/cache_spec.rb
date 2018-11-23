@@ -9,14 +9,14 @@ describe Cache do
     it { is_expected.to eq('bar') }
   end
 
-  context "cache hit?" do
+  context "cache hit" do
     before(:all) { @counter = 0 }
     before(:all) { @cache.save 'foo', 'bar' }
 
     subject { cache.with_cache('foo') { @counter += 1; 'bar' } }
 
     it { is_expected.to eq('bar') }
-    it "should not? increment the counter" do
+    it "should not increment the counter" do
       subject
       expect(@counter).to eq(0)
     end
