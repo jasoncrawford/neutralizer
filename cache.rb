@@ -21,6 +21,7 @@ class Cache
 
   def with_cache(text)
     key = key_for_text text
+    response = client.get key
     yield
   end
 end
