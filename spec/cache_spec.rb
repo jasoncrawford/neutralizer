@@ -4,11 +4,13 @@ describe Cache do
   before(:all) { @cache = Cache.new }
 
   context "cache miss" do
+    before(:all) { @cache.flush }
     subject { @cache.with_cache('foo') { 'bar' } }
     it { is_expected.to eq('bar') }
   end
 
   context "cache hit" do
+    before(:all) { @cache.flush }
     before(:all) { @counter = 0 }
     before(:all) { @cache.with_cache('foo') { 'bar' } }
 
