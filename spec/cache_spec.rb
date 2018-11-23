@@ -12,5 +12,8 @@ describe Cache do
     before(:all) { @counter = 0 }
     subject { cache.with_cache('foo') { 'bar' } }
     it { is_expected.to eq('bar') }
+    it "should not increment the counter" do
+      expect(@counter).to eq(0)
+    end
   end
 end
