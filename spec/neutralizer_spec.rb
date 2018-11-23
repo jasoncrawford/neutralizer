@@ -1,7 +1,7 @@
 require_relative '../neutralizer'
 
 describe Neutralizer do
-  let(:neutralizer) { Neutralizer.new }
+  let(:neutralizer) { Neutralizer.instance }
 
   describe "analyzer" do
     subject { neutralizer.analyzer }
