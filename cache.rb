@@ -1,4 +1,5 @@
 require 'digest'
+require 'redis'
 
 class Cache
   def client
