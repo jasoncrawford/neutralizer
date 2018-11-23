@@ -6,7 +6,7 @@ class Cache
   end
 
   def flush
-    @client.flushdb
+    client.flushdb
   end
 
   def key_for_text(text)
