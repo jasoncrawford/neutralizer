@@ -29,5 +29,15 @@ describe "server" do
     it "should neutralize the body" do
       expect(last_response.body).to eql('They think they will')
     end
+
+    context "with special characters" do
+      before do
+        post '/neutralize', "Won’t you handle “special” characters—please?"
+      end
+
+      it "should succeed" do
+        expect(last_response).to be_ok
+      end
+    end
   end
 end
