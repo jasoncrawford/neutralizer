@@ -1,4 +1,3 @@
-require 'singleton'
 require_relative 'syntax_analyzer'
 
 # General reference on syntax/grammar stuff here:
