@@ -11,5 +11,5 @@ post '/neutralize' do
   cache_control :public, max_age: 300
   headers 'Access-Control-Allow-Origin' => '*'
   text = request.body.read.force_encoding("UTF-8")
-  Neutralizer.neutralize text
+  settings.neutralizer.neutralize text
 end
