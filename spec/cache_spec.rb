@@ -11,6 +11,7 @@ describe Cache do
 
   context "cache hit?" do
     before(:all) { @counter = 0 }
+    before(:all) { @cache.save 'foo', 'bar' }
 
     subject { cache.with_cache('foo') { @counter += 1; 'bar' } }
 
