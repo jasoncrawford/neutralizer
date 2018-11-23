@@ -1,3 +1,5 @@
+require 'digest'
+
 class Cache
   def client
     @client ||= Redis.new
