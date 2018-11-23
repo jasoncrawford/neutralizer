@@ -25,6 +25,7 @@ class Cache
     return response unless response.nil?
 
     response = yield
+    client.set key, response
     response
   end
 end
