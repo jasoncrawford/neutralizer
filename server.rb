@@ -3,6 +3,7 @@ require_relative 'neutralizer'
 require_relative 'cache'
 
 set :neutralizer, Neutralizer.new
+set :cache, Cache.new
 
 get '/' do
   "hello, world!"
