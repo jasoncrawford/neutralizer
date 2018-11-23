@@ -18,7 +18,7 @@ describe Cache do
     it { is_expected.to eq('bar') }
     it "should not? increment the counter" do
       subject
-      expect(@counter).to eq(1)
+      expect(@counter).to eq(0)
     end
   end
 end
