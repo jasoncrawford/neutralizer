@@ -43,6 +43,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    redis (4.0.3)
     rly (0.2.3)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
@@ -75,6 +76,7 @@ DEPENDENCIES
   dotenv
   google-cloud-language
   rack-test
+  redis
   rspec
   sinatra
 
