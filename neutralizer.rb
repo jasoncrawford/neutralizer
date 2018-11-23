@@ -6,8 +6,12 @@ require_relative 'syntax_analyzer'
 class Neutralizer
   class Error < StandardError; end
 
+  def self.instance
+    new
+  end
+
   def self.neutralize(text)
-    new.neutralize text
+    instance.neutralize text
   end
 
   def initialize
