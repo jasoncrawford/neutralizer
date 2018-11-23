@@ -9,6 +9,7 @@ describe Cache do
   end
 
   context "cache hit?" do
+    before(:all) { @counter = 0 }
     subject { cache.with_cache('foo') { 'bar' } }
     it { is_expected.to eq('bar') }
   end
