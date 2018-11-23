@@ -7,7 +7,7 @@ class Neutralizer
   class Error < StandardError; end
 
   def self.instance
-    new
+    @@instance ||= new
   end
 
   def self.neutralize(text)
