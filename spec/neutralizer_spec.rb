@@ -186,6 +186,7 @@ describe Neutralizer do
       end
 
       context "special characters" do
+        let(:text) { "That’s what she said" } # non-ASCII apostrophe
       end
     end
   end
