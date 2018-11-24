@@ -237,5 +237,10 @@ describe Neutralizer do
       let(:text) { "I gave her back her pen" }
       it { is_expected.to eq("I gave them back their pen") }
     end
+
+    context "special characters" do
+      let(:text) { "That’s what she said" } # non-ASCII apostrophe
+      it { is_expected.to eq("That’s what they said") }
+    end
   end
 end
