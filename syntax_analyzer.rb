@@ -22,8 +22,11 @@ class SyntaxAnalyzer
   end
 
   def analyze(text)
-    document = {content: text, type: :PLAIN_TEXT}
+    # We seem to have to use UTF16 here even though the strings are UTF8. If we use UTF8, we don't
+    # get back the correct token offsets. Strangely, when we use UTF16, we do. -Jason 23 Nov 2018
     encoding_type = Google::Cloud::Language::V1::EncodingType::UTF16
+
+    document = {content: text, type: :PLAIN_TEXT}
     client.analyze_syntax document, encoding_type: encoding_type
   end
 end
