@@ -187,7 +187,7 @@ describe Neutralizer do
 
       context "special characters" do
         let(:text) { "That’s what she said" } # non-ASCII apostrophe
-        it { is_expected.to include(*[{orig: "she", offset: 12, repl: "they"}]) }
+        it { is_expected.to match_array([{orig: "she", offset: 12, repl: "they"}]) }
       end
     end
   end
