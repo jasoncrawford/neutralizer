@@ -45,9 +45,11 @@ describe SyntaxAnalyzer do
       end
     end
 
-    context "with special characters" do
-      let(:text) { "Won’t you handle “special” characters—please?" }
-      it("does not error") { expect{subject}.not_to raise_error }
+    describe "special characters" do
+      context "multiple special characters" do
+        let(:text) { "Won’t you handle “special” characters—please?" }
+        it("does not error") { expect{subject}.not_to raise_error }
+      end
     end
   end
 end
