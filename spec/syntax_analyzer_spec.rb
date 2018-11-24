@@ -48,6 +48,9 @@ describe SyntaxAnalyzer do
     context "with special characters" do
       let(:text) { "Won’t you handle “special” characters—please?" }
       it("does not error") { expect{subject}.not_to raise_error }
+      it "has tokens" do
+        expect(subject.tokens).to_not be_nil
+      end
     end
   end
 end
