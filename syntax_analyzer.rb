@@ -23,7 +23,7 @@ class SyntaxAnalyzer
 
   def analyze(text)
     document = {content: text, type: :PLAIN_TEXT}
-    encoding_type = Google::Cloud::Language::V1::EncodingType::UTF8
+    encoding_type = Google::Cloud::Language::V1::EncodingType::UTF16
     client.analyze_syntax document, encoding_type: encoding_type
   end
 end

@@ -49,7 +49,7 @@ describe SyntaxAnalyzer do
       let(:text) { "Won’t you handle “special” characters—please?" }
       it("does not error") { expect{subject}.not_to raise_error }
       it "has token offsets" do
-        expect(subject.tokens.map {|t| t.text.begin_offset}).to be_an(Array)
+        expect(subject.tokens.map {|t| t.text.begin_offset}).to eq([0, 2, 6, 10, 17, 18, 25, 27, 37, 38, 44])
       end
     end
   end
