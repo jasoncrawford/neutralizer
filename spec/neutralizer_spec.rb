@@ -184,6 +184,9 @@ describe Neutralizer do
         let(:text) { "Is he smart?" }
         it { is_expected.to match_array([{orig: "Is", offset: 0, repl: "Are"}, {orig: "he", offset: 3, repl: "they"}]) }
       end
+
+      context "special characters" do
+      end
     end
   end
 
