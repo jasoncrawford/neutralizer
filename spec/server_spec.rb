@@ -38,11 +38,15 @@ describe "server" do
 
     context "with special characters" do
       before do
-        post '/neutralize', "Won’t you handle “special” characters—please?"
+        post '/neutralize', "That’s what she said"
       end
 
       it "should succeed" do
         expect(last_response).to be_ok
+      end
+
+      it "should neutralize the body" do
+        expect(last_response.body).to eql("That’s what they said")
       end
     end
   end
